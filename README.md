@@ -1,8 +1,12 @@
-# wkhtmltopdf library tests
+# wkhtmltopdf library tests: will my library still work if I replace wkhtmltopdf?
 
-**Will your code still work if you replace wkhtmltopdf?** Most applications do not run wkhtmltopdf themselves: they call it through a library such as pdfkit, wicked_pdf, Snappy or Rotativa. Each of those libraries has its own test suite, written by its own maintainers. This repository runs 15 of those suites, unchanged, with three programs in wkhtmltopdf's place: wkhtmltopdf 0.12.6 itself, marqius-wkhtmltopdf and PDFKiln. Every number below comes from a run on GitHub's own machines, and every run's logs are public.
+**Your app probably doesn't run wkhtmltopdf itself.** It uses a library that runs it for you: pdfkit or django-wkhtmltopdf in Python, Snappy or laravel-snappy in PHP, wicked_pdf or PDFKit in Ruby, Rotativa in .NET, and others in Node.js, Go, Java and Elixir. Each of those libraries has its own test suite, written by its own authors.
 
-> marqius-wkhtmltopdf is a paid product of Simple AI LLC, which publishes these tests. The harness is open (MIT). We publish the misses along with the matches. If anything here is unfair to either program, open an issue.
+**This repository runs 15 of those test suites, unchanged, with two programs in wkhtmltopdf's place:** the original wkhtmltopdf 0.12.6, and marqius-wkhtmltopdf, its maintained replacement. The rule is simple: every test that passes with wkhtmltopdf must also pass with marqius-wkhtmltopdf.
+
+**Why it matters.** It answers "will my library still work after I switch?" with the library authors' own tests, not tests we wrote. Every run happens on GitHub's machines, in public, and every results file is signed by the run that made it, so nobody can quietly change a number.
+
+> marqius-wkhtmltopdf is a paid product of Simple AI LLC, which publishes these tests. The harness is open (MIT). We publish the misses along with the matches. If anything here looks unfair to either program, open an issue.
 
 ## The results
 
@@ -54,19 +58,36 @@ It shows the workflow, the commit and the run that made the file.
 
 ## How each suite is run
 
-- **The suite is the library's own.** Each library is fetched from its own repository at the commit its release was made from, and its tests run as its own CI runs them, with the runtime its CI used, or the nearest that still installs ([`libraries.json`](libraries.json) says where). No test is changed, skipped or run twice. Where the harness does more than the library's CI file, [`harness/suite.sh`](harness/suite.sh) says why: always to let the suite start on today's machines, never to make a test pass.
-- **Which releases.** Each library at its latest release on GitHub; for the seven that PDFKiln's README names, these are the versions it names. [`libraries.json`](libraries.json) lists each library with its commit and runtime.
-- **One program per machine.** Each library runs three times on x86-64 and three times on ARM64, each time on a fresh GitHub machine (Ubuntu 24.04) with one program installed: wkhtmltopdf 0.12.6 from upstream's own package (0.12.6.1-3, with patched Qt), marqius-wkhtmltopdf from its one-line installer, PDFKiln from its Debian package. Every machine first gets the same system packages and fonts ([`harness/packages.txt`](harness/packages.txt)), so the program is the only difference.
-- **The same files on every machine, checked.** One job downloads each program once and checks its SHA-256: against marqius.com's published sums, and a sum kept in [`programs.json`](programs.json) for wkhtmltopdf. Where a publisher makes a GitHub provenance attestation for its file, that must verify too, or the program is not tested: marqius-wkhtmltopdf's releases carry one. Every machine installs those files, and each report lists them with how each was checked.
-- **Where libraries look.** On every machine, `wkhtmltopdf` and `wkhtmltoimage` are found in one place only, `/usr/local/bin`, where upstream's package installs them and where the libraries look. What answers there is a small stand-in: it notes each call the library makes, then hands over to the program itself, so the library talks to the program directly. The count of calls shows which suites start the program at all.
-- **What counts.** A program keeps up with a library when every test that passes with wkhtmltopdf 0.12.6 passes with it too. Some tests fail with wkhtmltopdf 0.12.6 itself, for example where a test page loads pictures from a website that now answers with an error. They are listed with their reasons and not held against either program. Nor are tests that drive another program instead of wkhtmltopdf, such as pdf_generator's tests of its Chrome option: they are shown, marked “not counted”.
-- **Why a test fails.** Every failure is listed with what the test runner said. Where the cause is known, a note in plain words sits beside it ([`notes.tsv`](notes.tsv)). A note shows only while the failure it explains is still there, so a fixed failure takes its note with it.
-- **When it runs.** Every day, when either program has a version no run has tested; at each marqius-wkhtmltopdf release, the same day; every Monday, the latest versions again; and by hand. Each run files its results under [`results/`](results/) and writes the table above, so the versions shown are the ones tested.
-- **Attested results.** The files a run files under [`results/`](results/) are attested by that run: anyone can check that a results file was made by this repository's workflow, and from which commit and in which run (the commands are under the table).
+- **The library's own tests, unchanged.** Each library is fetched from its own repository at the commit its release was made from. Its tests run the way its own CI runs them, with the runtime its CI used, or the nearest that still installs. No test is changed, skipped or run twice. Where the harness does more than the library's CI file, [`harness/suite.sh`](harness/suite.sh) says why: always to let the suite start on today's machines, never to make a test pass.
+- **A fixed release of each library,** most at their latest release on GitHub. [`libraries.json`](libraries.json) lists each library with its commit and runtime.
+- **One program per machine.** Each library runs twice on x86-64 and twice on ARM64, each time on a fresh GitHub machine (Ubuntu 24.04) with one program installed: wkhtmltopdf 0.12.6 from upstream's own package (0.12.6.1-3, with patched Qt), or marqius-wkhtmltopdf from its one-line installer. Every machine first gets the same system packages and fonts ([`harness/packages.txt`](harness/packages.txt)), so the program is the only difference.
+- **The same files on every machine, checked.** One job downloads each program once and checks its SHA-256: against marqius.com's published sums, and against a sum kept in [`programs.json`](programs.json) for wkhtmltopdf. marqius-wkhtmltopdf's GitHub provenance attestation must verify too, or it is not tested. Each report lists the files and how each was checked.
+- **Where libraries look.** On every machine, `wkhtmltopdf` and `wkhtmltoimage` are found in one place only, `/usr/local/bin`, where upstream's package installs them. What answers there is a small stand-in: it notes each call the library makes, then hands over to the program itself. The count of calls shows which suites start the program at all.
+- **What counts.** A program keeps up with a library when every test that passes with wkhtmltopdf 0.12.6 passes with it too. Tests that fail with wkhtmltopdf itself, for example because a test page loads a picture from a website that now answers with an error, are listed with their reasons and not held against either program. Nor are tests that drive another program instead of wkhtmltopdf, such as pdf_generator's tests of its Chrome option: they are shown, marked "not counted".
+- **Why a test fails.** Every failure is listed with what the test runner said. Where the cause is known, a note in plain words sits beside it ([`notes.tsv`](notes.tsv)). A note shows only while the failure it explains is still there.
+- **When it runs.** Every day, when marqius-wkhtmltopdf has a version no run has tested; at each marqius-wkhtmltopdf release, the same day; every Monday, the latest versions again; and by hand. Each run files its results under [`results/`](results/) and rewrites the table above.
+- **Signed results.** Every file a run files under [`results/`](results/) is attested by that run: anyone can check which workflow, commit and run made it, with the command under the table.
 
 ## Run it yourself
 
-Fork this repository and run the **Libraries** workflow from the Actions tab. You can give the versions, the libraries and the machines (x86-64, ARM64 or both), or leave them empty for the latest of everything on both. A full run is 90 jobs of one to eight minutes each. A run of some libraries only is reported on its own page, not filed.
+Fork this repository and run the **Libraries** workflow from the Actions tab. You can choose the versions, the libraries and the machines (x86-64, ARM64 or both), or leave them empty for the latest of everything on both. A full run is 60 jobs of one to eight minutes each. A run of some libraries only is reported on its own page, not filed.
+
+## Questions
+
+**Why do some libraries show no program runs?**
+The tests of Snappy, KnpSnappyBundle and CakePdf check the command line the library builds, without starting the program. They pass with any program installed, or none. The "program runs" column shows how often each suite really started it.
+
+**A test fails with wkhtmltopdf too. Is it held against marqius-wkhtmltopdf?**
+No. Only tests that pass with wkhtmltopdf 0.12.6 count. Each failure is listed with the test runner's message and, where known, the reason.
+
+**How do I know nobody edited these results?**
+Each results file is signed by the GitHub run that made it. Check one with the `gh attestation verify` command under the table: it shows the workflow, the commit and the run.
+
+**My library is not here. Can you add it?**
+Open an issue with a link to its repository.
+
+**How do I switch my own app?**
+Point your library's wkhtmltopdf setting at marqius-wkhtmltopdf. The [examples](https://github.com/marqiushq/marqius-wkhtmltopdf-examples) show the one-line change for 14 libraries, and [marqius-wkhtmltopdf](https://github.com/marqiushq/marqius-wkhtmltopdf) shows how to install it.
 
 ## Licence
 

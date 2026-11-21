@@ -1,5 +1,5 @@
 {
-  "about": "The three programs put in wkhtmltopdf's place. wkhtmltopdf 0.12.6 is fixed; for the other two, each run tests the version it is given or the latest, and files the version it used with its results. 'attestations': the GitHub repository whose provenance attestation, when one exists for a file's digest, must verify before the file is tested.",
+  "about": "The two programs run in wkhtmltopdf's place. wkhtmltopdf 0.12.6 is fixed; for marqius-wkhtmltopdf, each run tests the version it is given or the latest, and files the version it used with its results. 'attestations': the GitHub repository whose provenance attestation, when one exists for a file's digest, must verify before the file is tested.",
   "programs": [
     {
       "key": "wkhtmltopdf",
