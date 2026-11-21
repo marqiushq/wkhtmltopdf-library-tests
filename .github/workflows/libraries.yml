@@ -1,0 +1,301 @@
+# Runs the wkhtmltopdf libraries' own test suites with three programs in wkhtmltopdf's place, on
+# GitHub's own machines, and files what each suite reported under results/ with a link back to the
+# run, so anyone can read the log behind every number.
+#
+#   every day      when either replacement has a version no run has tested: that pair of versions;
+#                  on Mondays the latest pair again, so a change in the world shows within a week.
+#                  The scheduled run starts that run by hand (workflow_dispatch) rather than testing
+#                  itself: a scheduled event does not say whether the repository is public, and the
+#                  results' attestation is signed according to that
+#   by hand        Actions > Libraries > Run workflow: the versions, libraries and machines to test
+#   at a release   each marqius-wkhtmltopdf release ends by sending a repository_dispatch, type
+#                  marqius-wkhtmltopdf-release, client_payload {"version": "X.Y.Z"}: that version
+#                  with the latest PDFKiln, the same day
+#   on a change    to the harness or the lists: the latest pair; a pull request is tested the same
+#                  way, and nothing is filed for it
+#
+# Each cell is one library with one program on a fresh machine. Its colour is the suite's own
+# verdict: red when any of its tests failed, whichever program it ran with. The report says which
+# failures wkhtmltopdf 0.12.6 has too. Only the report job can write to the repository.
+#
+# Provenance: each program is checked against its SHA-256 and, where its publisher makes one, its
+# GitHub attestation, before anything is tested; the files a run files under results/ are attested
+# by the report job (GitHub makes attestations only for public repositories on this plan: while the
+# repository is private the step is skipped, and the run's page lists what it would have attested).
+name: Libraries
+
+on:
+  schedule:
+    - cron: "37 5 * * *"
+  workflow_dispatch:
+    inputs:
+      marqius:
+        description: "marqius-wkhtmltopdf version (empty: the latest)"
+        required: false
+        default: ""
+      pdfkiln:
+        description: "PDFKiln version (empty: the latest)"
+        required: false
+        default: ""
+      libraries:
+        description: "Libraries to run, separated by spaces (empty: all 15)"
+        required: false
+        default: ""
+      archs:
+        description: "Machines: x86-64, arm64, or both separated by a space (empty: both)"
+        required: false
+        default: ""
+      publish:
+        description: "File the results under results/ and update the README"
+        type: boolean
+        default: true
+  repository_dispatch:
+    types: [marqius-wkhtmltopdf-release]
+  push:
+    branches: [main]
+    paths: ["harness/**", "libraries.json", "programs.json", ".github/workflows/libraries.yml"]
+  pull_request:
+    paths: ["harness/**", "libraries.json", "programs.json", ".github/workflows/libraries.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  plan:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      actions: write   # a scheduled run starts the run by hand
+    outputs:
+      run: ${{ steps.plan.outputs.run }}
+      marqius: ${{ steps.plan.outputs.marqius }}
+      pdfkiln: ${{ steps.plan.outputs.pdfkiln }}
+      pair: ${{ steps.plan.outputs.pair }}
+      archs: ${{ steps.plan.outputs.archs }}
+      matrix: ${{ steps.plan.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - id: plan
+        name: Pick the versions and the cells
+        env:
+          EVENT: ${{ github.event_name }}
+          # by hand, the inputs; at a release, the dispatch's payload (plan.py checks every value)
+          INPUT_MARQIUS: ${{ inputs.marqius || github.event.client_payload.version }}
+          INPUT_PDFKILN: ${{ inputs.pdfkiln }}
+          INPUT_LIBRARIES: ${{ inputs.libraries || github.event.client_payload.libraries }}
+          INPUT_ARCHS: ${{ inputs.archs || github.event.client_payload.archs }}
+          DEFAULT_ARCHS: ${{ vars.ARCHS }}
+          GH_TOKEN: ${{ github.token }}
+        run: python3 harness/plan.py >> "$GITHUB_OUTPUT"
+      - name: Start the run by hand, for the versions picked
+        if: steps.plan.outputs.dispatch == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          MARQIUS: ${{ steps.plan.outputs.marqius }}
+          PDFKILN: ${{ steps.plan.outputs.pdfkiln }}
+        run: gh workflow run libraries.yml --repo "$GITHUB_REPOSITORY" --ref main -f marqius="$MARQIUS" -f pdfkiln="$PDFKILN" -f publish=true
+
+  programs:
+    needs: plan
+    if: needs.plan.outputs.run == 'true'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Download the three programs and check their SHA-256 and attestations
+        env:
+          GH_TOKEN: ${{ github.token }}
+          MARQIUS: ${{ needs.plan.outputs.marqius }}
+          PDFKILN: ${{ needs.plan.outputs.pdfkiln }}
+          ARCHS: ${{ join(fromJSON(needs.plan.outputs.archs), ' ') }}
+        run: |
+          bash harness/programs.sh "$MARQIUS" "$PDFKILN" "$ARCHS" programs
+          mkdir -p programs-list && cp programs/programs.json programs-list/
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: programs
+          path: programs
+          retention-days: 3
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: programs-list
+          path: programs-list
+          retention-days: 90
+
+  suite:
+    needs: [plan, programs]
+    name: ${{ matrix.title }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJSON(needs.plan.outputs.matrix) }}
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 45
+    env:
+      WORK: ${{ github.workspace }}/work
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: programs
+          path: programs
+      - id: apt
+        name: System packages, the same on every machine
+        run: bash harness/suite.sh "${{ matrix.library }}" apt
+
+      - if: matrix.python != ''
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: ${{ matrix.python }}
+      - if: matrix.php != ''
+        uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # 2.40.0
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: ${{ matrix.php_extensions }}
+          coverage: none
+          tools: composer
+      - if: matrix.ruby != ''
+        uses: ruby/setup-ruby@be3c7df29b3349ec6bcfc6b4792f1cf9f5237d18 # v1.343.0
+        with:
+          ruby-version: ${{ matrix.ruby }}
+      - if: matrix.node != ''
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: ${{ matrix.node }}
+      - if: matrix.go != ''
+        uses: actions/setup-go@d8cbb8045d7f43706b9177cceb36c1f91a6644d5 # v7.1.0
+        with:
+          go-version: ${{ matrix.go }}
+          cache: false
+      - if: matrix.java != ''
+        uses: actions/setup-java@d1374f8ac74474200d16ef8ecee22c7ae7a51880 # v6.3.0
+        with:
+          distribution: temurin
+          java-version: ${{ matrix.java }}
+      - if: matrix.elixir != ''
+        uses: erlef/setup-beam@54075bcc5e249e4758d363f27d099f55d843f124 # v1.24.1
+        with:
+          elixir-version: ${{ matrix.elixir }}
+          otp-version: ${{ matrix.otp }}
+      - if: matrix.dotnet != ''
+        uses: actions/setup-dotnet@0f4a354dd5547a28c70b7853dbd95d5b67886e73 # v6.1.0
+        with:
+          dotnet-version: ${{ matrix.dotnet }}
+
+      - id: fetch
+        name: The library at its release
+        run: bash harness/suite.sh "${{ matrix.library }}" fetch
+      - id: deps
+        name: Its dependencies, as its own CI installs them
+        run: bash harness/suite.sh "${{ matrix.library }}" deps
+      - id: install
+        name: The program in wkhtmltopdf's place
+        run: bash harness/install.sh "${{ matrix.program }}" programs "${{ matrix.arch }}"
+      - id: test
+        name: Its own test suite
+        continue-on-error: true
+        timeout-minutes: 30
+        run: bash harness/suite.sh "${{ matrix.library }}" test
+      - name: What the suite reported
+        if: always()
+        env:
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          JOB_TITLE: ${{ matrix.title }}
+          STEPS: >-
+            apt=${{ steps.apt.outcome }} fetch=${{ steps.fetch.outcome }} deps=${{ steps.deps.outcome }}
+            install=${{ steps.install.outcome }} test=${{ steps.test.outcome }}
+        run: |
+          mkdir -p work/out cell
+          python3 harness/results.py read "${{ matrix.library }}" "${{ matrix.program }}" "${{ matrix.arch }}" > cell/cell.json
+          # what the test runner itself wrote, kept beside the cell for anyone who wants to look
+          cp -R work/out cell/runner
+      - if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: cell-${{ matrix.library }}-${{ matrix.program }}-${{ matrix.arch }}
+          path: cell
+          retention-days: 90
+      - name: The suite's verdict
+        if: always()
+        run: python3 harness/results.py verdict cell/cell.json
+
+  report:
+    needs: [plan, programs, suite]
+    if: always() && needs.programs.result == 'success'
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+      id-token: write       # to sign the attestation of the filed results
+      attestations: write   # to store it
+    concurrency:
+      group: report-${{ github.ref }}
+      cancel-in-progress: false
+    env:
+      RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+      PUBLISH: >-
+        ${{ github.ref == 'refs/heads/main' &&
+        (github.event_name == 'push' || github.event_name == 'repository_dispatch' ||
+        (github.event_name == 'workflow_dispatch' && inputs.publish)) }}
+    steps:
+      # main as it is now, not as it was when this run began: another run may have filed since
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event_name == 'pull_request' && github.sha || 'main' }}
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          pattern: cell-*
+          path: artifacts
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: programs-list
+          path: programs-list
+      - name: The report
+        run: python3 harness/publish.py artifacts programs-list/programs.json --summary "$GITHUB_STEP_SUMMARY" --dry-run
+      # asked of the API, not read from the event: a scheduled run's event does not say
+      - name: Is this repository public?
+        id: repo
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          private=$(gh api "repos/$GITHUB_REPOSITORY" --jq .private)
+          case $private in true|false) echo "private=$private" >> "$GITHUB_OUTPUT" ;; *) echo "::error::cannot tell: $private"; exit 1 ;; esac
+      - name: File the results, write the README table and commit
+        id: file
+        if: env.PUBLISH == 'true'
+        env:
+          REPOSITORY: ${{ github.repository }}
+          ATTESTED: ${{ steps.repo.outputs.private == 'false' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # if main moves while this files (a push, another run), file again on top of it
+          for try in 1 2 3; do
+            rm -f "$RUNNER_TEMP/message.txt" "$RUNNER_TEMP/subjects.sha256"
+            python3 harness/publish.py artifacts programs-list/programs.json --message "$RUNNER_TEMP/message.txt" --subjects "$RUNNER_TEMP/subjects.sha256"
+            git add results README.md
+            if git diff --cached --quiet || [ ! -s "$RUNNER_TEMP/message.txt" ]; then echo "nothing new to file"; exit 0; fi
+            git commit -q -F "$RUNNER_TEMP/message.txt"
+            if git push -q origin HEAD:main; then echo "filed=true" >> "$GITHUB_OUTPUT"; exit 0; fi
+            echo "main moved while filing; filing again on top of it"
+            git fetch -q origin main && git reset -q --hard origin/main
+          done
+          exit 1
+      # the files this run filed, attested as made by this workflow from this commit: anyone can check
+      # one with `gh attestation verify FILE -R OWNER/REPO`
+      - name: Attest the filed results
+        if: steps.file.outputs.filed == 'true' && steps.repo.outputs.private == 'false'
+        uses: actions/attest-build-provenance@4d101475d8b20a2381f78447822ac1eab6504dd8 # v4.2.2
+        with:
+          subject-checksums: ${{ runner.temp }}/subjects.sha256
+      - name: Not attested while the repository is private
+        if: steps.file.outputs.filed == 'true' && steps.repo.outputs.private == 'true'
+        run: |
+          {
+            echo "### Not attested: this repository is private"
+            echo
+            echo "GitHub makes artifact attestations only for public repositories on this organisation's plan. Once the repository is public, this run's files would be attested by the step above. They are:"
+            echo
+            echo '```'
+            cat "$RUNNER_TEMP/subjects.sha256"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          echo "::notice::Results filed, not attested: attestations need a public repository on this plan"

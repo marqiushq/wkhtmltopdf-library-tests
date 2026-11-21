@@ -1,0 +1,9 @@
+# Plain-words reasons for failures, shown beside a failure only while it matches. counted: no marks
+# tests that drive another program instead of wkhtmltopdf; they are shown, and not counted for or against anyone.
+# library	programs (* or names)	test (regular expression)	what the runner says (regular expression)	note	counted
+go-wkhtmltopdf	*	 (TestGeneratePdfFromStdinHtml5|TestTOCAndCustomFooter)$	loremflickr	Pictures from loremflickr.com: the test pages load pictures from loremflickr.com, which now answers with an error, and wkhtmltopdf 0.12.6 stops when a picture does not load.	yes
+pdf_generator	*	^test chrome	.	Chrome, not wkhtmltopdf: the library's tests of its Chrome option drive Google Chrome through its own Node helper, and on these machines they mostly do not finish within ExUnit's one-minute limit; they are shown, and not counted.	no
+django-wkhtmltopdf	*	::test_pdf_template_(view|response)(_to_browser)?$	CalledProcessError	A footer with missing files: the test footer loads a script and a picture that do not exist, and wkhtmltopdf 0.12.6 stops with an error on that.	yes
+django-wkhtmltopdf	pdfkiln	.	endswith\(b'%%EOF\\n'\)	How a PDF ends: the tests check that the PDF ends with “%%EOF” and a line break, as wkhtmltopdf's PDFs do; PDFKiln's PDFs end without the line break.	yes
+pdfkit-ruby	pdfkiln	ampersands in URLs	exitstatus=1	Google's “unusual traffic” page: the test converts a Google search page; on these machines Google answers PDFKiln's request with that page, and PDFKiln stops with an error, while wkhtmltopdf 0.12.6 and marqius-wkhtmltopdf are sent the search page itself.	yes
+rotativa	*	.	Selenium Manager process exited abnormally	No Chrome on ARM64: these tests open the demo application in Google Chrome through Selenium, which finds no Chrome on GitHub's ARM64 machines; they fail whichever program is installed.	yes

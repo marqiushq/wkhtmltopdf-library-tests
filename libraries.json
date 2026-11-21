@@ -1,0 +1,96 @@
+{
+  "about": "The libraries whose own test suites run here: each at a release, fetched from its own repository at the commit that release was made from, and run as its own CI runs it. Runtimes are the newest its CI ran at that release, where that can still be installed. 'pdfkiln' is the version PDFKiln's README names for the seven it lists.",
+  "libraries": [
+    {
+      "key": "python-pdfkit", "name": "python-pdfkit", "language": "Python",
+      "repo": "JazzCore/python-pdfkit", "release": "1.0.0", "commit": "c7c609f46512f40e3bd6009bcb17bc1201316753",
+      "setup": {"python": "3.9"}, "apt": [],
+      "runs": "nosetests -w tests", "pdfkiln": "1.0.0"
+    },
+    {
+      "key": "imgkit", "name": "imgkit", "language": "Python", "program": "wkhtmltoimage",
+      "repo": "jarrekk/imgkit", "release": "V1.2.3", "commit": "3ee9977004a7ad24aaa71890f4591ce646d0b95e",
+      "setup": {"python": "3.9"}, "apt": ["xvfb"],
+      "runs": "nosetests --where tests imgkit_test.py"
+    },
+    {
+      "key": "django-wkhtmltopdf", "name": "django-wkhtmltopdf", "language": "Python",
+      "repo": "incuna/django-wkhtmltopdf", "release": "v3.4.0", "commit": "8a73477c7f2051bcc463fc8e7a2fdd7fec6d17fc",
+      "setup": {"python": "3.9"}, "apt": [],
+      "runs": "make test (python wkhtmltopdf/tests/run.py), Django 4.0"
+    },
+    {
+      "key": "snappy", "name": "Snappy", "language": "PHP",
+      "repo": "KnpLabs/snappy", "release": "v1.7.3", "commit": "f749a7d2e0f1260f4a0f96925323e34ede898f1f",
+      "setup": {"php": "8.4"}, "apt": [],
+      "runs": "vendor/bin/phpunit", "pdfkiln": "1.7.3"
+    },
+    {
+      "key": "laravel-snappy", "name": "laravel-snappy", "language": "PHP",
+      "repo": "barryvdh/laravel-snappy", "release": "v1.0.5", "commit": "d702a7b712b63027d5bf5ad321afd84996305a2b",
+      "setup": {"php": "8.4"}, "apt": [],
+      "runs": "composer test (phpunit), Laravel 13", "pdfkiln": "1.0.5"
+    },
+    {
+      "key": "phpwkhtmltopdf", "name": "phpwkhtmltopdf", "language": "PHP",
+      "repo": "mikehaertl/phpwkhtmltopdf", "release": "2.5.0", "commit": "17ee71341591415d942774eda2c98d8ba7ea9e90",
+      "setup": {"php": "8.0"}, "apt": ["xvfb"],
+      "runs": "vendor/bin/phpunit", "pdfkiln": "2.5.0"
+    },
+    {
+      "key": "knpsnappybundle", "name": "KnpSnappyBundle", "language": "PHP, Symfony",
+      "repo": "KnpLabs/KnpSnappyBundle", "release": "v1.10.6", "commit": "9501e76b63158bc6c390065ede40963d5a94b065",
+      "setup": {"php": "8.4"}, "apt": [],
+      "runs": "vendor/bin/phpunit"
+    },
+    {
+      "key": "cakepdf", "name": "CakePdf", "language": "PHP, CakePHP",
+      "repo": "FriendsOfCake/CakePdf", "release": "5.3.0", "commit": "9c478eba9fa697513b5fd7ec69cdf0a37d81869c",
+      "setup": {"php": "8.4", "php_extensions": "mbstring, intl"}, "apt": ["weasyprint"],
+      "runs": "vendor/bin/phpunit", "pdfkiln": "5.3.0"
+    },
+    {
+      "key": "wicked_pdf", "name": "wicked_pdf", "language": "Ruby, Rails",
+      "repo": "mileszs/wicked_pdf", "release": "2.7.0", "commit": "edcd80e7a96b5fe79476f7984e5ff8f3765f220d",
+      "setup": {"ruby": "3.2"}, "apt": ["libsqlite3-dev"],
+      "runs": "bundle exec rake setup_and_run_tests, Rails 7.0", "pdfkiln": "2.7.0"
+    },
+    {
+      "key": "pdfkit-ruby", "name": "PDFKit", "language": "Ruby",
+      "repo": "pdfkit/pdfkit", "release": "v0.8.7.3", "commit": "762b366e9420f8d2b9fc50a372b51094a0247dd4",
+      "setup": {"ruby": "3.1"}, "apt": [],
+      "runs": "bundle exec rake (rspec), Rails 7.0"
+    },
+    {
+      "key": "node", "name": "wkhtmltopdf for Node", "language": "JavaScript",
+      "repo": "devongovett/node-wkhtmltopdf", "release": "0.4.0", "commit": "51745d803a65134dd87c30fd3276ca48630e467d",
+      "release_note": "no tag on GitHub: the commit npm's 0.4.0 was published from",
+      "setup": {"node": "22"}, "apt": [],
+      "runs": "npm test (jasmine)", "runtime_note": "it has no CI of its own: Node 22, a long-term-support release"
+    },
+    {
+      "key": "go-wkhtmltopdf", "name": "go-wkhtmltopdf", "language": "Go",
+      "repo": "SebastiaanKlippert/go-wkhtmltopdf", "release": "v1.9.3", "commit": "efe6a2047eb2c6bb25cced3b07f8ea4ebef516ba",
+      "setup": {"go": "1.27"}, "apt": [],
+      "runs": "go test -v", "pdfkiln": "1.9.3", "runtime_note": "its CI takes the newest stable Go, which is 1.27"
+    },
+    {
+      "key": "java", "name": "java-wkhtmltopdf-wrapper", "language": "Java",
+      "repo": "jhonnymertz/java-wkhtmltopdf-wrapper", "release": "1.3.1-RELEASE", "commit": "13c44f0743ef1e8b17b7e1716eb4cfd482e79f12",
+      "setup": {"java": "8"}, "apt": ["xvfb"],
+      "runs": "mvn --batch-mode --update-snapshots verify"
+    },
+    {
+      "key": "pdf_generator", "name": "pdf_generator", "language": "Elixir",
+      "repo": "gutschilla/elixir-pdf-generator", "release": "v0.6.2", "commit": "9c4fa3b40f5c4d79f065a3a73bf33a5e7a5ad17f",
+      "setup": {"elixir": "1.16.3", "otp": "26.2.5"}, "apt": ["xvfb"],
+      "runs": "mix test", "runtime_note": "its CI ran Elixir 1.9 on Alpine; here Elixir 1.16 with OTP 26 on Ubuntu"
+    },
+    {
+      "key": "rotativa", "name": "Rotativa.AspNetCore", "language": ".NET",
+      "repo": "webgio/Rotativa.AspNetCore", "release": "v1.5.0", "commit": "84c470e82f2fec13e1d4755c86fee90a9606c3ac",
+      "setup": {"dotnet": "10.0.x"}, "apt": [],
+      "runs": "build-demo.sh, then run-tests.sh (the demo app, then dotnet test against it)"
+    }
+  ]
+}
