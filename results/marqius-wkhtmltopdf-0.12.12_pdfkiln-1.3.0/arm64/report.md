@@ -1,6 +1,6 @@
 # Library test suites: marqius-wkhtmltopdf 0.12.12 and PDFKiln 1.3.0, with wkhtmltopdf 0.12.6
 
-Run of 21 November 2026 on GitHub's Ubuntu 24.04 machines (arm64): https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/44885107848
+Run of 21 November 2026 on GitHub's Ubuntu 24.04 machines (arm64): https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/44886681397
 
 ## The programs
 
@@ -19,8 +19,8 @@ Run of 21 November 2026 on GitHub's Ubuntu 24.04 machines (arm64): https://githu
 | Program | Result | Tests | Passed | Failed | Skipped | Program runs | Seconds |
 |---|---|--:|--:|--:|--:|--:|--:|
 | wkhtmltopdf 0.12.6 | passed: 47 passed, 0 skipped | 47 | 47 | 0 | 0 | 9 | 2 |
-| marqius-wkhtmltopdf 0.12.12 | keeps up: 47 passed, 0 skipped | 47 | 47 | 0 | 0 | 9 | 1 |
-| PDFKiln 1.3.0 | keeps up: 47 passed, 0 skipped | 47 | 47 | 0 | 0 | 9 | 2 |
+| marqius-wkhtmltopdf 0.12.12 | keeps up: 47 passed, 0 skipped | 47 | 47 | 0 | 0 | 9 | 0 |
+| PDFKiln 1.3.0 | keeps up: 47 passed, 0 skipped | 47 | 47 | 0 | 0 | 9 | 3 |
 
 Options the library sent: `--bad-option`, `--cookie`, `--footer-line`, `--outline`, `--page-size`, `--quiet`.
 
@@ -30,9 +30,9 @@ Options the library sent: `--bad-option`, `--cookie`, `--footer-line`, `--outlin
 
 | Program | Result | Tests | Passed | Failed | Skipped | Program runs | Seconds |
 |---|---|--:|--:|--:|--:|--:|--:|
-| wkhtmltopdf 0.12.6 | passed: 48 passed, 0 skipped | 48 | 48 | 0 | 0 | 9 | 2 |
+| wkhtmltopdf 0.12.6 | passed: 48 passed, 0 skipped | 48 | 48 | 0 | 0 | 9 | 3 |
 | marqius-wkhtmltopdf 0.12.12 | keeps up: 48 passed, 0 skipped | 48 | 48 | 0 | 0 | 9 | 13 |
-| PDFKiln 1.3.0 | keeps up: 48 passed, 0 skipped | 48 | 48 | 0 | 0 | 9 | 8 |
+| PDFKiln 1.3.0 | keeps up: 48 passed, 0 skipped | 48 | 48 | 0 | 0 | 9 | 9 |
 
 Options the library sent: `--bad-option`, `--format`.
 
@@ -42,7 +42,7 @@ Options the library sent: `--bad-option`, `--format`.
 
 | Program | Result | Tests | Passed | Failed | Skipped | Program runs | Seconds |
 |---|---|--:|--:|--:|--:|--:|--:|
-| wkhtmltopdf 0.12.6 | failed: 4 of 18 tests failed | 18 | 14 | 4 | 0 | 14 | 4 |
+| wkhtmltopdf 0.12.6 | failed: 4 of 18 tests failed | 18 | 14 | 4 | 0 | 14 | 5 |
 | marqius-wkhtmltopdf 0.12.12 | keeps up: 4 of 18 tests failed | 18 | 14 | 4 | 0 | 14 | 1 |
 | PDFKiln 1.3.0 | behind: 7 of 18 tests failed | 18 | 11 | 7 | 0 | 12 | 4 |
 
@@ -52,19 +52,19 @@ Options the library sent: `--encoding`, `--footer-html`, `--quiet`, `--title`.
 
 | Test | With wkhtmltopdf 0.12.6 | What the test runner says | Why |
 |---|---|---|---|
-| `wkhtmltopdf.tests.tests.TestViews::test_pdf_template_response` | – | subprocess.CalledProcessError: Command '['/usr/local/bin/wkhtmltopdf', '--encoding', 'utf8', '--footer-html', '/tmp/wkhtmltopdfvbvhpbv2.html', '--quiet', '--title', 'Test PDF', '/tmp/wkhtmltopdfhyphf6jc.html', '-']' returned non-zero exit status 1. | A footer with missing files: the test footer loads a script and a picture that do not exist, and wkhtmltopdf 0.12.6 stops with an error on that. |
-| `wkhtmltopdf.tests.tests.TestViews::test_pdf_template_response_to_browser` | – | subprocess.CalledProcessError: Command '['/usr/local/bin/wkhtmltopdf', '--encoding', 'utf8', '--footer-html', '/tmp/wkhtmltopdfh6oxs6ce.html', '--quiet', '--title', 'Test PDF', '/tmp/wkhtmltopdf9ifq8xmb.html', '-']' returned non-zero exit status 1. | A footer with missing files: the test footer loads a script and a picture that do not exist, and wkhtmltopdf 0.12.6 stops with an error on that. |
-| `wkhtmltopdf.tests.tests.TestViews::test_pdf_template_view` | – | subprocess.CalledProcessError: Command '['/usr/local/bin/wkhtmltopdf', '--encoding', 'utf8', '--footer-html', '/tmp/wkhtmltopdf6oxmhb6q.html', '--quiet', '/tmp/wkhtmltopdf4q5c379e.html', '-']' returned non-zero exit status 1. | A footer with missing files: the test footer loads a script and a picture that do not exist, and wkhtmltopdf 0.12.6 stops with an error on that. |
-| `wkhtmltopdf.tests.tests.TestViews::test_pdf_template_view_to_browser` | – | subprocess.CalledProcessError: Command '['/usr/local/bin/wkhtmltopdf', '--encoding', 'utf8', '--footer-html', '/tmp/wkhtmltopdfs2l63xee.html', '--quiet', '/tmp/wkhtmltopdfszfqfn1j.html', '-']' returned non-zero exit status 1. | A footer with missing files: the test footer loads a script and a picture that do not exist, and wkhtmltopdf 0.12.6 stops with an error on that. |
+| `wkhtmltopdf.tests.tests.TestViews::test_pdf_template_response` | – | subprocess.CalledProcessError: Command '['/usr/local/bin/wkhtmltopdf', '--encoding', 'utf8', '--footer-html', '/tmp/wkhtmltopdf692ee189.html', '--quiet', '--title', 'Test PDF', '/tmp/wkhtmltopdfw38h2qct.html', '-']' returned non-zero exit status 1. | A footer with missing files: the test footer loads a script and a picture that do not exist, and wkhtmltopdf 0.12.6 stops with an error on that. |
+| `wkhtmltopdf.tests.tests.TestViews::test_pdf_template_response_to_browser` | – | subprocess.CalledProcessError: Command '['/usr/local/bin/wkhtmltopdf', '--encoding', 'utf8', '--footer-html', '/tmp/wkhtmltopdfv11zteua.html', '--quiet', '--title', 'Test PDF', '/tmp/wkhtmltopdf4thzdl1e.html', '-']' returned non-zero exit status 1. | A footer with missing files: the test footer loads a script and a picture that do not exist, and wkhtmltopdf 0.12.6 stops with an error on that. |
+| `wkhtmltopdf.tests.tests.TestViews::test_pdf_template_view` | – | subprocess.CalledProcessError: Command '['/usr/local/bin/wkhtmltopdf', '--encoding', 'utf8', '--footer-html', '/tmp/wkhtmltopdfd68vnbyx.html', '--quiet', '/tmp/wkhtmltopdf2l1kopl7.html', '-']' returned non-zero exit status 1. | A footer with missing files: the test footer loads a script and a picture that do not exist, and wkhtmltopdf 0.12.6 stops with an error on that. |
+| `wkhtmltopdf.tests.tests.TestViews::test_pdf_template_view_to_browser` | – | subprocess.CalledProcessError: Command '['/usr/local/bin/wkhtmltopdf', '--encoding', 'utf8', '--footer-html', '/tmp/wkhtmltopdfoc5bamaa.html', '--quiet', '/tmp/wkhtmltopdfmavvvzyz.html', '-']' returned non-zero exit status 1. | A footer with missing files: the test footer loads a script and a picture that do not exist, and wkhtmltopdf 0.12.6 stops with an error on that. |
 
 **Failed with marqius-wkhtmltopdf 0.12.12:**
 
 | Test | With wkhtmltopdf 0.12.6 | What the test runner says | Why |
 |---|---|---|---|
-| `wkhtmltopdf.tests.tests.TestViews::test_pdf_template_response` | fails too | subprocess.CalledProcessError: Command '['/usr/local/bin/wkhtmltopdf', '--encoding', 'utf8', '--footer-html', '/tmp/wkhtmltopdfpg7s8r5n.html', '--quiet', '--title', 'Test PDF', '/tmp/wkhtmltopdf_kn49r2q.html', '-']' returned non-zero exit status 1. | A footer with missing files: the test footer loads a script and a picture that do not exist, and wkhtmltopdf 0.12.6 stops with an error on that. |
-| `wkhtmltopdf.tests.tests.TestViews::test_pdf_template_response_to_browser` | fails too | subprocess.CalledProcessError: Command '['/usr/local/bin/wkhtmltopdf', '--encoding', 'utf8', '--footer-html', '/tmp/wkhtmltopdfl1qui9zm.html', '--quiet', '--title', 'Test PDF', '/tmp/wkhtmltopdfqmfe85y6.html', '-']' returned non-zero exit status 1. | A footer with missing files: the test footer loads a script and a picture that do not exist, and wkhtmltopdf 0.12.6 stops with an error on that. |
-| `wkhtmltopdf.tests.tests.TestViews::test_pdf_template_view` | fails too | subprocess.CalledProcessError: Command '['/usr/local/bin/wkhtmltopdf', '--encoding', 'utf8', '--footer-html', '/tmp/wkhtmltopdftx0ydn_1.html', '--quiet', '/tmp/wkhtmltopdfx55f9t87.html', '-']' returned non-zero exit status 1. | A footer with missing files: the test footer loads a script and a picture that do not exist, and wkhtmltopdf 0.12.6 stops with an error on that. |
-| `wkhtmltopdf.tests.tests.TestViews::test_pdf_template_view_to_browser` | fails too | subprocess.CalledProcessError: Command '['/usr/local/bin/wkhtmltopdf', '--encoding', 'utf8', '--footer-html', '/tmp/wkhtmltopdfqcj03px6.html', '--quiet', '/tmp/wkhtmltopdf3lkc931h.html', '-']' returned non-zero exit status 1. | A footer with missing files: the test footer loads a script and a picture that do not exist, and wkhtmltopdf 0.12.6 stops with an error on that. |
+| `wkhtmltopdf.tests.tests.TestViews::test_pdf_template_response` | fails too | subprocess.CalledProcessError: Command '['/usr/local/bin/wkhtmltopdf', '--encoding', 'utf8', '--footer-html', '/tmp/wkhtmltopdfo0miqi48.html', '--quiet', '--title', 'Test PDF', '/tmp/wkhtmltopdfoqym5cpo.html', '-']' returned non-zero exit status 1. | A footer with missing files: the test footer loads a script and a picture that do not exist, and wkhtmltopdf 0.12.6 stops with an error on that. |
+| `wkhtmltopdf.tests.tests.TestViews::test_pdf_template_response_to_browser` | fails too | subprocess.CalledProcessError: Command '['/usr/local/bin/wkhtmltopdf', '--encoding', 'utf8', '--footer-html', '/tmp/wkhtmltopdfbgdykayx.html', '--quiet', '--title', 'Test PDF', '/tmp/wkhtmltopdf3_ilz9rl.html', '-']' returned non-zero exit status 1. | A footer with missing files: the test footer loads a script and a picture that do not exist, and wkhtmltopdf 0.12.6 stops with an error on that. |
+| `wkhtmltopdf.tests.tests.TestViews::test_pdf_template_view` | fails too | subprocess.CalledProcessError: Command '['/usr/local/bin/wkhtmltopdf', '--encoding', 'utf8', '--footer-html', '/tmp/wkhtmltopdfb5llt1wr.html', '--quiet', '/tmp/wkhtmltopdfkmplb7d6.html', '-']' returned non-zero exit status 1. | A footer with missing files: the test footer loads a script and a picture that do not exist, and wkhtmltopdf 0.12.6 stops with an error on that. |
+| `wkhtmltopdf.tests.tests.TestViews::test_pdf_template_view_to_browser` | fails too | subprocess.CalledProcessError: Command '['/usr/local/bin/wkhtmltopdf', '--encoding', 'utf8', '--footer-html', '/tmp/wkhtmltopdfpdn_bqdu.html', '--quiet', '/tmp/wkhtmltopdfyvwfygl7.html', '-']' returned non-zero exit status 1. | A footer with missing files: the test footer loads a script and a picture that do not exist, and wkhtmltopdf 0.12.6 stops with an error on that. |
 
 **Failed with PDFKiln 1.3.0:**
 
@@ -73,8 +73,8 @@ Options the library sent: `--encoding`, `--footer-html`, `--quiet`, `--title`.
 | `wkhtmltopdf.tests.tests.TestUtils::test_render_with_null_request` | passes | self.assertTrue(pdf_content.endswith(b'%%EOF\n')): AssertionError: False is not true | How a PDF ends: the tests check that the PDF ends with “%%EOF” and a line break, as wkhtmltopdf's PDFs do; PDFKiln's PDFs end without the line break. |
 | `wkhtmltopdf.tests.tests.TestViews::test_pdf_template_response` | fails too | self.assertTrue(pdf_content.endswith(b'%%EOF\n')): AssertionError: False is not true | How a PDF ends: the tests check that the PDF ends with “%%EOF” and a line break, as wkhtmltopdf's PDFs do; PDFKiln's PDFs end without the line break. |
 | `wkhtmltopdf.tests.tests.TestViews::test_pdf_template_response_to_browser` | fails too | self.assertTrue(pdf_content.endswith(b'%%EOF\n')): AssertionError: False is not true | How a PDF ends: the tests check that the PDF ends with “%%EOF” and a line break, as wkhtmltopdf's PDFs do; PDFKiln's PDFs end without the line break. |
-| `wkhtmltopdf.tests.tests.TestViews::test_pdf_template_view` | fails too | subprocess.CalledProcessError: Command '['/usr/local/bin/wkhtmltopdf', '--encoding', 'utf8', '--footer-html', '/tmp/wkhtmltopdflp5waydn.html', '--quiet', '/tmp/wkhtmltopdf2tkgzddz.html', '-']' returned non-zero exit status 1. | A footer with missing files: the test footer loads a script and a picture that do not exist, and wkhtmltopdf 0.12.6 stops with an error on that. |
-| `wkhtmltopdf.tests.tests.TestViews::test_pdf_template_view_to_browser` | fails too | subprocess.CalledProcessError: Command '['/usr/local/bin/wkhtmltopdf', '--encoding', 'utf8', '--footer-html', '/tmp/wkhtmltopdfxhiv8jwu.html', '--quiet', '/tmp/wkhtmltopdfgflr93n_.html', '-']' returned non-zero exit status 1. | A footer with missing files: the test footer loads a script and a picture that do not exist, and wkhtmltopdf 0.12.6 stops with an error on that. |
+| `wkhtmltopdf.tests.tests.TestViews::test_pdf_template_view` | fails too | subprocess.CalledProcessError: Command '['/usr/local/bin/wkhtmltopdf', '--encoding', 'utf8', '--footer-html', '/tmp/wkhtmltopdf0ae1gtlz.html', '--quiet', '/tmp/wkhtmltopdfwyaomfka.html', '-']' returned non-zero exit status 1. | A footer with missing files: the test footer loads a script and a picture that do not exist, and wkhtmltopdf 0.12.6 stops with an error on that. |
+| `wkhtmltopdf.tests.tests.TestViews::test_pdf_template_view_to_browser` | fails too | subprocess.CalledProcessError: Command '['/usr/local/bin/wkhtmltopdf', '--encoding', 'utf8', '--footer-html', '/tmp/wkhtmltopdf1dzopbar.html', '--quiet', '/tmp/wkhtmltopdfnejdfi76.html', '-']' returned non-zero exit status 1. | A footer with missing files: the test footer loads a script and a picture that do not exist, and wkhtmltopdf 0.12.6 stops with an error on that. |
 | `wkhtmltopdf.tests.tests.TestViews::test_pdf_template_view_unicode` | passes | self.assertTrue(response.content.endswith(b'%%EOF\n')): AssertionError: False is not true | How a PDF ends: the tests check that the PDF ends with “%%EOF” and a line break, as wkhtmltopdf's PDFs do; PDFKiln's PDFs end without the line break. |
 | `wkhtmltopdf.tests.tests.TestViews::test_pdf_template_view_unicode_to_browser` | passes | self.assertTrue(response.content.endswith(b'%%EOF\n')): AssertionError: False is not true | How a PDF ends: the tests check that the PDF ends with “%%EOF” and a line break, as wkhtmltopdf's PDFs do; PDFKiln's PDFs end without the line break. |
 
@@ -84,7 +84,7 @@ Options the library sent: `--encoding`, `--footer-html`, `--quiet`, `--title`.
 
 | Program | Result | Tests | Passed | Failed | Skipped | Program runs | Seconds |
 |---|---|--:|--:|--:|--:|--:|--:|
-| wkhtmltopdf 0.12.6 | passed: 49 passed, 0 skipped | 49 | 49 | 0 | 0 | 0 | 1 |
+| wkhtmltopdf 0.12.6 | passed: 49 passed, 0 skipped | 49 | 49 | 0 | 0 | 0 | 0 |
 | marqius-wkhtmltopdf 0.12.12 | keeps up: 49 passed, 0 skipped | 49 | 49 | 0 | 0 | 0 | 0 |
 | PDFKiln 1.3.0 | keeps up: 49 passed, 0 skipped | 49 | 49 | 0 | 0 | 0 | 0 |
 
@@ -94,8 +94,8 @@ Options the library sent: `--encoding`, `--footer-html`, `--quiet`, `--title`.
 
 | Program | Result | Tests | Passed | Failed | Skipped | Program runs | Seconds |
 |---|---|--:|--:|--:|--:|--:|--:|
-| wkhtmltopdf 0.12.6 | passed: 6 passed, 0 skipped | 6 | 6 | 0 | 0 | 5 | 1 |
-| marqius-wkhtmltopdf 0.12.12 | keeps up: 6 passed, 0 skipped | 6 | 6 | 0 | 0 | 5 | 1 |
+| wkhtmltopdf 0.12.6 | passed: 6 passed, 0 skipped | 6 | 6 | 0 | 0 | 5 | 2 |
+| marqius-wkhtmltopdf 0.12.12 | keeps up: 6 passed, 0 skipped | 6 | 6 | 0 | 0 | 5 | 0 |
 | PDFKiln 1.3.0 | keeps up: 6 passed, 0 skipped | 6 | 6 | 0 | 0 | 5 | 2 |
 
 Options the library sent: `--lowquality`.
@@ -107,8 +107,8 @@ Options the library sent: `--lowquality`.
 | Program | Result | Tests | Passed | Failed | Skipped | Program runs | Seconds |
 |---|---|--:|--:|--:|--:|--:|--:|
 | wkhtmltopdf 0.12.6 | passed: 34 passed, 0 skipped | 34 | 34 | 0 | 0 | 34 | 12 |
-| marqius-wkhtmltopdf 0.12.12 | keeps up: 34 passed, 0 skipped | 34 | 34 | 0 | 0 | 34 | 2 |
-| PDFKiln 1.3.0 | keeps up: 34 passed, 0 skipped | 34 | 34 | 0 | 0 | 34 | 14 |
+| marqius-wkhtmltopdf 0.12.12 | keeps up: 34 passed, 0 skipped | 34 | 34 | 0 | 0 | 34 | 1 |
+| PDFKiln 1.3.0 | keeps up: 34 passed, 0 skipped | 34 | 34 | 0 | 0 | 34 | 15 |
 
 Options the library sent: `--allow`, `--cookie`, `--disable-dotted-lines`, `--footer-html`, `--header-center`, `--header-html`, `--margin-top`, `--no-background`, `--no-outline`, `--replace`, `--transparent`, `--width`, `--zoom`.
 
@@ -120,7 +120,7 @@ Options the library sent: `--allow`, `--cookie`, `--disable-dotted-lines`, `--fo
 |---|---|--:|--:|--:|--:|--:|--:|
 | wkhtmltopdf 0.12.6 | passed: 26 passed, 0 skipped | 26 | 26 | 0 | 0 | 0 | 0 |
 | marqius-wkhtmltopdf 0.12.12 | keeps up: 26 passed, 0 skipped | 26 | 26 | 0 | 0 | 0 | 0 |
-| PDFKiln 1.3.0 | keeps up: 26 passed, 0 skipped | 26 | 26 | 0 | 0 | 0 | 1 |
+| PDFKiln 1.3.0 | keeps up: 26 passed, 0 skipped | 26 | 26 | 0 | 0 | 0 | 0 |
 
 ### CakePdf 5.3.0 (PHP, CakePHP)
 
@@ -128,9 +128,9 @@ Options the library sent: `--allow`, `--cookie`, `--disable-dotted-lines`, `--fo
 
 | Program | Result | Tests | Passed | Failed | Skipped | Program runs | Seconds |
 |---|---|--:|--:|--:|--:|--:|--:|
-| wkhtmltopdf 0.12.6 | passed: 33 passed, 1 skipped | 34 | 33 | 0 | 1 | 0 | 0 |
-| marqius-wkhtmltopdf 0.12.12 | keeps up: 33 passed, 1 skipped | 34 | 33 | 0 | 1 | 0 | 0 |
-| PDFKiln 1.3.0 | keeps up: 33 passed, 1 skipped | 34 | 33 | 0 | 1 | 0 | 1 |
+| wkhtmltopdf 0.12.6 | passed: 33 passed, 1 skipped | 34 | 33 | 0 | 1 | 0 | 1 |
+| marqius-wkhtmltopdf 0.12.12 | keeps up: 33 passed, 1 skipped | 34 | 33 | 0 | 1 | 0 | 1 |
+| PDFKiln 1.3.0 | keeps up: 33 passed, 1 skipped | 34 | 33 | 0 | 1 | 0 | 0 |
 
 ### wicked_pdf 2.7.0 (Ruby, Rails)
 
@@ -139,7 +139,7 @@ Options the library sent: `--allow`, `--cookie`, `--disable-dotted-lines`, `--fo
 | Program | Result | Tests | Passed | Failed | Skipped | Program runs | Seconds |
 |---|---|--:|--:|--:|--:|--:|--:|
 | wkhtmltopdf 0.12.6 | passed: 45 passed, 0 skipped | 45 | 45 | 0 | 0 | 8 | 3 |
-| marqius-wkhtmltopdf 0.12.12 | keeps up: 45 passed, 0 skipped | 45 | 45 | 0 | 0 | 8 | 2 |
+| marqius-wkhtmltopdf 0.12.12 | keeps up: 45 passed, 0 skipped | 45 | 45 | 0 | 0 | 8 | 3 |
 | PDFKiln 1.3.0 | keeps up: 45 passed, 0 skipped | 45 | 45 | 0 | 0 | 8 | 4 |
 
 ### PDFKit v0.8.7.3 (Ruby)
@@ -148,9 +148,9 @@ Options the library sent: `--allow`, `--cookie`, `--disable-dotted-lines`, `--fo
 
 | Program | Result | Tests | Passed | Failed | Skipped | Program runs | Seconds |
 |---|---|--:|--:|--:|--:|--:|--:|
-| wkhtmltopdf 0.12.6 | passed: 180 passed, 2 skipped | 182 | 180 | 0 | 2 | 70 | 23 |
-| marqius-wkhtmltopdf 0.12.12 | keeps up: 180 passed, 2 skipped | 182 | 180 | 0 | 2 | 71 | 2 |
-| PDFKiln 1.3.0 | behind: 1 of 182 tests failed | 182 | 179 | 1 | 2 | 71 | 24 |
+| wkhtmltopdf 0.12.6 | passed: 180 passed, 2 skipped | 182 | 180 | 0 | 2 | 62 | 23 |
+| marqius-wkhtmltopdf 0.12.12 | keeps up: 180 passed, 2 skipped | 182 | 180 | 0 | 2 | 73 | 6 |
+| PDFKiln 1.3.0 | behind: 1 of 182 tests failed | 182 | 179 | 1 | 2 | 63 | 20 |
 
 Options the library sent: `--disable-smart-shrinking`, `--encoding`, `--header-center`, `--header-spacing`, `--javascript-delay`, `--margin-bottom`, `--margin-left`, `--margin-right`, `--margin-top`, `--page-size`, `--quiet`.
 
@@ -168,7 +168,7 @@ Options the library sent: `--disable-smart-shrinking`, `--encoding`, `--header-c
 |---|---|--:|--:|--:|--:|--:|--:|
 | wkhtmltopdf 0.12.6 | passed: 5 passed, 0 skipped | 5 | 5 | 0 | 0 | 5 | 1 |
 | marqius-wkhtmltopdf 0.12.12 | keeps up: 5 passed, 0 skipped | 5 | 5 | 0 | 0 | 5 | 0 |
-| PDFKiln 1.3.0 | keeps up: 5 passed, 0 skipped | 5 | 5 | 0 | 0 | 5 | 2 |
+| PDFKiln 1.3.0 | keeps up: 5 passed, 0 skipped | 5 | 5 | 0 | 0 | 5 | 1 |
 
 Options the library sent: `--quiet`.
 
@@ -178,9 +178,9 @@ Options the library sent: `--quiet`.
 
 | Program | Result | Tests | Passed | Failed | Skipped | Program runs | Seconds |
 |---|---|--:|--:|--:|--:|--:|--:|
-| wkhtmltopdf 0.12.6 | failed: 2 of 34 tests failed | 34 | 31 | 2 | 1 | 16 | 19 |
+| wkhtmltopdf 0.12.6 | failed: 2 of 34 tests failed | 34 | 31 | 2 | 1 | 16 | 20 |
 | marqius-wkhtmltopdf 0.12.12 | keeps up: 2 of 34 tests failed | 34 | 31 | 2 | 1 | 16 | 18 |
-| PDFKiln 1.3.0 | keeps up: 2 of 34 tests failed | 34 | 31 | 2 | 1 | 16 | 22 |
+| PDFKiln 1.3.0 | keeps up: 2 of 34 tests failed | 34 | 31 | 2 | 1 | 16 | 21 |
 
 Options the library sent: `--allow`, `--custom-header`, `--disable-dotted-lines`, `--disable-smart-shrinking`, `--dpi`, `--enable-local-file-access`, `--footer-font-size`, `--footer-html`, `--footer-right`, `--footer-spacing`, `--grayscale`, `--header-spacing`, `--margin-bottom`, `--margin-left`, `--margin-right`, `--margin-top`, `--orientation`, `--page-height`, `--page-size`, `--page-width`, `--version`, `--viewport-size`, `--window-status`, `--xsl-style-sheet`, `--zoom`.
 
@@ -189,7 +189,7 @@ Options the library sent: `--allow`, `--custom-header`, `--disable-dotted-lines`
 | Test | With wkhtmltopdf 0.12.6 | What the test runner says | Why |
 |---|---|---|---|
 | `github.com/SebastiaanKlippert/go-wkhtmltopdf TestGeneratePdfFromStdinHtml5` | – | Error: Failed to load https://loremflickr.com/420/420, with network status code 299 and http status code 500 - Error downloading https://loremflickr.com/420/420 - server replied: Internal Server Error | Pictures from loremflickr.com: the test pages load pictures from loremflickr.com, which now answers with an error, and wkhtmltopdf 0.12.6 stops when a picture does not load. |
-| `github.com/SebastiaanKlippert/go-wkhtmltopdf TestTOCAndCustomFooter` | – | Error: Failed to load https://loremflickr.com/420/420, with network status code 299 and http status code 500 - Error downloading https://loremflickr.com/420/420 - server replied: Internal Server Error | Pictures from loremflickr.com: the test pages load pictures from loremflickr.com, which now answers with an error, and wkhtmltopdf 0.12.6 stops when a picture does not load. |
+| `github.com/SebastiaanKlippert/go-wkhtmltopdf TestTOCAndCustomFooter` | – | Error: Failed to load https://loremflickr.com/480/480, with network status code 299 and http status code 500 - Error downloading https://loremflickr.com/480/480 - server replied: Internal Server Error | Pictures from loremflickr.com: the test pages load pictures from loremflickr.com, which now answers with an error, and wkhtmltopdf 0.12.6 stops when a picture does not load. |
 
 **Failed with marqius-wkhtmltopdf 0.12.12:**
 
@@ -203,7 +203,7 @@ Options the library sent: `--allow`, `--custom-header`, `--disable-dotted-lines`
 | Test | With wkhtmltopdf 0.12.6 | What the test runner says | Why |
 |---|---|---|---|
 | `github.com/SebastiaanKlippert/go-wkhtmltopdf TestGeneratePdfFromStdinHtml5` | fails too | Error: Failed to load https://loremflickr.com/420/420, with network status code 299 and http status code 500 - Error downloading https://loremflickr.com/420/420 - server replied: Internal Server Error | Pictures from loremflickr.com: the test pages load pictures from loremflickr.com, which now answers with an error, and wkhtmltopdf 0.12.6 stops when a picture does not load. |
-| `github.com/SebastiaanKlippert/go-wkhtmltopdf TestTOCAndCustomFooter` | fails too | Error: Failed to load https://loremflickr.com/420/420, with network status code 299 and http status code 500 - Error downloading https://loremflickr.com/420/420 - server replied: Internal Server Error | Pictures from loremflickr.com: the test pages load pictures from loremflickr.com, which now answers with an error, and wkhtmltopdf 0.12.6 stops when a picture does not load. |
+| `github.com/SebastiaanKlippert/go-wkhtmltopdf TestTOCAndCustomFooter` | fails too | Error: Failed to load https://loremflickr.com/480/480, with network status code 299 and http status code 500 - Error downloading https://loremflickr.com/480/480 - server replied: Internal Server Error | Pictures from loremflickr.com: the test pages load pictures from loremflickr.com, which now answers with an error, and wkhtmltopdf 0.12.6 stops when a picture does not load. |
 
 ### java-wkhtmltopdf-wrapper 1.3.1-RELEASE (Java)
 
@@ -211,9 +211,9 @@ Options the library sent: `--allow`, `--custom-header`, `--disable-dotted-lines`
 
 | Program | Result | Tests | Passed | Failed | Skipped | Program runs | Seconds |
 |---|---|--:|--:|--:|--:|--:|--:|
-| wkhtmltopdf 0.12.6 | passed: 30 passed, 0 skipped | 30 | 30 | 0 | 0 | 13 | 24 |
-| marqius-wkhtmltopdf 0.12.12 | keeps up: 30 passed, 0 skipped | 30 | 30 | 0 | 0 | 13 | 17 |
-| PDFKiln 1.3.0 | keeps up: 30 passed, 0 skipped | 30 | 30 | 0 | 0 | 13 | 27 |
+| wkhtmltopdf 0.12.6 | passed: 30 passed, 0 skipped | 30 | 30 | 0 | 0 | 13 | 23 |
+| marqius-wkhtmltopdf 0.12.12 | keeps up: 30 passed, 0 skipped | 30 | 30 | 0 | 0 | 13 | 16 |
+| PDFKiln 1.3.0 | keeps up: 30 passed, 0 skipped | 30 | 30 | 0 | 0 | 13 | 26 |
 
 Options the library sent: `--exclude-from-outline`, `--footer-center`, `--header-center`, `--javascript-delay`, `--toc-header-text`, `--window-status`.
 
@@ -225,7 +225,7 @@ Options the library sent: `--exclude-from-outline`, `--footer-center`, `--header
 |---|---|--:|--:|--:|--:|--:|--:|
 | wkhtmltopdf 0.12.6 | failed: 3 of 15 tests failed | 15 | 12 | 3 | 0 | 11 | 4 |
 | marqius-wkhtmltopdf 0.12.12 | keeps up: 3 of 15 tests failed | 15 | 12 | 3 | 0 | 11 | 1 |
-| PDFKiln 1.3.0 | behind: 4 of 15 tests failed | 15 | 11 | 4 | 0 | 10 | 6 |
+| PDFKiln 1.3.0 | keeps up: 5 of 15 tests failed | 15 | 10 | 5 | 0 | 9 | 4 |
 
 Options the library sent: `--margin-right`, `--orientation`, `--page-size`.
 
@@ -234,7 +234,7 @@ Options the library sent: `--margin-right`, `--orientation`, `--page-size`.
 | Test | With wkhtmltopdf 0.12.6 | What the test runner says | Why |
 |---|---|---|---|
 | `test chrome's no-sandbox option doesn't crash` | – | ** (FunctionClauseError) no function clause matching in IO.chardata_to_string/1 | Chrome, not wkhtmltopdf: the library's tests of its Chrome option drive Google Chrome through its own Node helper, and on these machines they mostly do not finish within ExUnit's one-minute limit; they are shown, and not counted. |
-| `test chrome-headless from URL (assuming google.com is up and running)` | – | ** (ExUnit.AssertionError) | Chrome, not wkhtmltopdf: the library's tests of its Chrome option drive Google Chrome through its own Node helper, and on these machines they mostly do not finish within ExUnit's one-minute limit; they are shown, and not counted. |
+| `test chrome-headless from URL (assuming google.com is up and running)` | – | ** (ExUnit.AssertionError) Assertion with == failed code:  assert status == :ok left:  :error right: :ok | Chrome, not wkhtmltopdf: the library's tests of its Chrome option drive Google Chrome through its own Node helper, and on these machines they mostly do not finish within ExUnit's one-minute limit; they are shown, and not counted. |
 | `test chrome-headless from file` | – | ** (MatchError) no match of right hand side value: {:error, {:generator_failed, "Error: Couldn't detect chrome version installed! use --chrome-binary to pass c … tests/wkhtmltopdf-library-tests/work/lib/priv/node_modules/chrome-headless-render-pdf/dist/index.js:689:39)\n    at tryCatch (/home/runner/work/wkhtmltopdf-li | Chrome, not wkhtmltopdf: the library's tests of its Chrome option drive Google Chrome through its own Node helper, and on these machines they mostly do not finish within ExUnit's one-minute limit; they are shown, and not counted. |
 
 **Failed with marqius-wkhtmltopdf 0.12.12:**
@@ -242,7 +242,7 @@ Options the library sent: `--margin-right`, `--orientation`, `--page-size`.
 | Test | With wkhtmltopdf 0.12.6 | What the test runner says | Why |
 |---|---|---|---|
 | `test chrome's no-sandbox option doesn't crash` | fails too | ** (FunctionClauseError) no function clause matching in IO.chardata_to_string/1 | Chrome, not wkhtmltopdf: the library's tests of its Chrome option drive Google Chrome through its own Node helper, and on these machines they mostly do not finish within ExUnit's one-minute limit; they are shown, and not counted. |
-| `test chrome-headless from URL (assuming google.com is up and running)` | fails too | ** (ExUnit.AssertionError) | Chrome, not wkhtmltopdf: the library's tests of its Chrome option drive Google Chrome through its own Node helper, and on these machines they mostly do not finish within ExUnit's one-minute limit; they are shown, and not counted. |
+| `test chrome-headless from URL (assuming google.com is up and running)` | fails too | ** (ExUnit.AssertionError) Assertion with == failed code:  assert status == :ok left:  :error right: :ok | Chrome, not wkhtmltopdf: the library's tests of its Chrome option drive Google Chrome through its own Node helper, and on these machines they mostly do not finish within ExUnit's one-minute limit; they are shown, and not counted. |
 | `test chrome-headless from file` | fails too | ** (MatchError) no match of right hand side value: {:error, {:generator_failed, "Error: Couldn't detect chrome version installed! use --chrome-binary to pass c … tests/wkhtmltopdf-library-tests/work/lib/priv/node_modules/chrome-headless-render-pdf/dist/index.js:689:39)\n    at tryCatch (/home/runner/work/wkhtmltopdf-li | Chrome, not wkhtmltopdf: the library's tests of its Chrome option drive Google Chrome through its own Node helper, and on these machines they mostly do not finish within ExUnit's one-minute limit; they are shown, and not counted. |
 
 **Failed with PDFKiln 1.3.0:**
@@ -250,9 +250,10 @@ Options the library sent: `--margin-right`, `--orientation`, `--page-size`.
 | Test | With wkhtmltopdf 0.12.6 | What the test runner says | Why |
 |---|---|---|---|
 | `test chrome's no-sandbox option doesn't crash` | fails too | ** (FunctionClauseError) no function clause matching in IO.chardata_to_string/1 | Chrome, not wkhtmltopdf: the library's tests of its Chrome option drive Google Chrome through its own Node helper, and on these machines they mostly do not finish within ExUnit's one-minute limit; they are shown, and not counted. |
-| `test chrome-headless from URL (assuming google.com is up and running)` | fails too | ** (ExUnit.AssertionError) | Chrome, not wkhtmltopdf: the library's tests of its Chrome option drive Google Chrome through its own Node helper, and on these machines they mostly do not finish within ExUnit's one-minute limit; they are shown, and not counted. |
+| `test chrome-headless from URL (assuming google.com is up and running)` | fails too | ** (ExUnit.AssertionError) Assertion with == failed code:  assert status == :ok left:  :error right: :ok | Chrome, not wkhtmltopdf: the library's tests of its Chrome option drive Google Chrome through its own Node helper, and on these machines they mostly do not finish within ExUnit's one-minute limit; they are shown, and not counted. |
 | `test chrome-headless from file` | fails too | ** (MatchError) no match of right hand side value: {:error, {:generator_failed, "Error: Couldn't detect chrome version installed! use --chrome-binary to pass c … tests/wkhtmltopdf-library-tests/work/lib/priv/node_modules/chrome-headless-render-pdf/dist/index.js:689:39)\n    at tryCatch (/home/runner/work/wkhtmltopdf-li | Chrome, not wkhtmltopdf: the library's tests of its Chrome option drive Google Chrome through its own Node helper, and on these machines they mostly do not finish within ExUnit's one-minute limit; they are shown, and not counted. |
-| `test generate! returns a filename` | passes | ** (ArgumentError) construction of binary failed: segment 2 of type 'binary': expected a binary but got: {:generator_failed, "xvfb-run: error: Xvfb failed to start\n"} |  |
+| `test generate! returns a filename` | passes | ** (ArgumentError) construction of binary failed: segment 2 of type 'binary': expected a binary but got: {:generator_failed, "xvfb-run: error: Xvfb failed to start\n"} | A virtual display that did not start: the library starts the program inside a virtual display (xvfb-run), which failed to start on this machine, so the program never ran in this test; it is shown, and not counted. |
+| `test generate_binary! reads file` | passes | ** (ArgumentError) construction of binary failed: segment 2 of type 'binary': expected a binary but got: {:generator_failed, "xvfb-run: error: Xvfb failed to start\n"} | A virtual display that did not start: the library starts the program inside a virtual display (xvfb-run), which failed to start on this machine, so the program never ran in this test; it is shown, and not counted. |
 
 ### Rotativa.AspNetCore v1.5.0 (.NET)
 
@@ -260,9 +261,9 @@ Options the library sent: `--margin-right`, `--orientation`, `--page-size`.
 
 | Program | Result | Tests | Passed | Failed | Skipped | Program runs | Seconds |
 |---|---|--:|--:|--:|--:|--:|--:|
-| wkhtmltopdf 0.12.6 | failed: 5 of 10 tests failed | 10 | 5 | 5 | 0 | 0 | 7 |
+| wkhtmltopdf 0.12.6 | failed: 5 of 10 tests failed | 10 | 5 | 5 | 0 | 0 | 5 |
 | marqius-wkhtmltopdf 0.12.12 | keeps up: 5 of 10 tests failed | 10 | 5 | 5 | 0 | 0 | 8 |
-| PDFKiln 1.3.0 | keeps up: 5 of 10 tests failed | 10 | 5 | 5 | 0 | 0 | 17 |
+| PDFKiln 1.3.0 | keeps up: 5 of 10 tests failed | 10 | 5 | 5 | 0 | 0 | 10 |
 
 **Failed with wkhtmltopdf 0.12.6:**
 

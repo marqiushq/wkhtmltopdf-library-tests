@@ -8,9 +8,9 @@
 
 <!-- results:start -->
 
-With **marqius-wkhtmltopdf 0.12.12**, every test that passes with wkhtmltopdf 0.12.6 also passes in **14 of 15** libraries. With **PDFKiln 1.3.0**, in **12 of 15**.
+With **marqius-wkhtmltopdf 0.12.12**, every test that passes with wkhtmltopdf 0.12.6 also passes in **15 of 15** libraries. With **PDFKiln 1.3.0**, in **13 of 15**.
 
-Run of 21 November 2026 on GitHub's Ubuntu 24.04 machines (x86-64): [the run and its logs](https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/44885107848), [every failure and its reason](results/marqius-wkhtmltopdf-0.12.12_pdfkiln-1.3.0/x86-64/report.md). On ARM64 machines ([run of 21 November 2026](https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/44885107848), [report](results/marqius-wkhtmltopdf-0.12.12_pdfkiln-1.3.0/arm64/report.md)): marqius-wkhtmltopdf 0.12.12 in 15 of 15, PDFKiln 1.3.0 in 12 of 15.
+Run of 21 November 2026 on GitHub's Ubuntu 24.04 machines (x86-64): [the run and its logs](https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/44886681397), [every failure and its reason](results/marqius-wkhtmltopdf-0.12.12_pdfkiln-1.3.0/x86-64/report.md). On ARM64 machines ([run of 21 November 2026](https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/44886681397), [report](results/marqius-wkhtmltopdf-0.12.12_pdfkiln-1.3.0/arm64/report.md)): marqius-wkhtmltopdf 0.12.12 in 15 of 15, PDFKiln 1.3.0 in 13 of 15.
 
 | Library | Language | Tests | Program runs | wkhtmltopdf 0.12.6 | marqius-wkhtmltopdf 0.12.12 | PDFKiln 1.3.0 |
 |---|---|--:|--:|---|---|---|
@@ -26,8 +26,8 @@ Run of 21 November 2026 on GitHub's Ubuntu 24.04 machines (x86-64): [the run and
 | [PDFKit](https://github.com/pdfkit/pdfkit/tree/762b366e9420f8d2b9fc50a372b51094a0247dd4) 0.8.7.3 | Ruby | 182 | 66 | 180 passed, 2 skipped | ✓ 180 passed, 2 skipped | ✗ 179 passed, 1 failed, 2 skipped (1 test that passes with wkhtmltopdf) |
 | [wkhtmltopdf for Node](https://github.com/devongovett/node-wkhtmltopdf/tree/51745d803a65134dd87c30fd3276ca48630e467d) 0.4.0 | JavaScript | 5 | 5 | 5 passed | ✓ 5 passed | ✓ 5 passed |
 | [go-wkhtmltopdf](https://github.com/SebastiaanKlippert/go-wkhtmltopdf/tree/efe6a2047eb2c6bb25cced3b07f8ea4ebef516ba) 1.9.3 | Go | 34 | 16 | 31 passed, 2 failed, 1 skipped | ✓ 31 passed, 2 failed, 1 skipped | ✓ 31 passed, 2 failed, 1 skipped |
-| [java-wkhtmltopdf-wrapper](https://github.com/jhonnymertz/java-wkhtmltopdf-wrapper/tree/13c44f0743ef1e8b17b7e1716eb4cfd482e79f12) 1.3.1-RELEASE | Java | 30 | 13 | 30 passed | ✗ 26 passed, 4 failed (4 tests that pass with wkhtmltopdf) | ✓ 30 passed |
-| [pdf_generator](https://github.com/gutschilla/elixir-pdf-generator/tree/9c4fa3b40f5c4d79f065a3a73bf33a5e7a5ad17f) 0.6.2 | Elixir | 15 | 11 | 12 passed, 3 failed | ✓ 12 passed, 3 failed | ✗ 10 passed, 5 failed (2 tests that pass with wkhtmltopdf) |
+| [java-wkhtmltopdf-wrapper](https://github.com/jhonnymertz/java-wkhtmltopdf-wrapper/tree/13c44f0743ef1e8b17b7e1716eb4cfd482e79f12) 1.3.1-RELEASE | Java | 30 | 12 | 30 passed | ✓ 30 passed | ✓ 30 passed |
+| [pdf_generator](https://github.com/gutschilla/elixir-pdf-generator/tree/9c4fa3b40f5c4d79f065a3a73bf33a5e7a5ad17f) 0.6.2 | Elixir | 15 | 11 | 12 passed, 3 failed | ✓ 12 passed, 3 failed | ✓ 10 passed, 5 failed |
 | [Rotativa.AspNetCore](https://github.com/webgio/Rotativa.AspNetCore/tree/84c470e82f2fec13e1d4755c86fee90a9606c3ac) 1.5.0 | .NET | 10 | 4 | 10 passed | ✓ 10 passed | ✓ 10 passed |
 
 ✓ every test that passes with wkhtmltopdf 0.12.6 passes with this program too. ✗ some do not: the number in brackets. The figures are what each test runner reported; a test that fails with wkhtmltopdf 0.12.6 too, or that drives another program instead of wkhtmltopdf (marked “not counted” below), is not held against either program. Program runs: how many times the suite started wkhtmltopdf or wkhtmltoimage.
@@ -39,14 +39,10 @@ Snappy, KnpSnappyBundle, CakePdf: their tests never start the program. They chec
 - **django-wkhtmltopdf**, 2 tests, with all three programs. A footer with missing files: the test footer loads a script and a picture that do not exist, and wkhtmltopdf 0.12.6 stops with an error on that.
 - **go-wkhtmltopdf**, 2 tests, with all three programs. Pictures from loremflickr.com: the test pages load pictures from loremflickr.com, which now answers with an error, and wkhtmltopdf 0.12.6 stops when a picture does not load.
 - **pdf_generator**, 3 tests, not counted. Chrome, not wkhtmltopdf: the library's tests of its Chrome option drive Google Chrome through its own Node helper, and on these machines they mostly do not finish within ExUnit's one-minute limit; they are shown, and not counted.
+- **pdf_generator**, 2 tests, not counted. A virtual display that did not start: the library starts the program inside a virtual display (xvfb-run), which failed to start on this machine, so the program never ran in this test; it is shown, and not counted.
 - **django-wkhtmltopdf**, 2 tests, with wkhtmltopdf 0.12.6 and marqius-wkhtmltopdf 0.12.12. A footer with missing files: the test footer loads a script and a picture that do not exist, and wkhtmltopdf 0.12.6 stops with an error on that.
 - **django-wkhtmltopdf**, 5 tests, with PDFKiln 1.3.0. How a PDF ends: the tests check that the PDF ends with “%%EOF” and a line break, as wkhtmltopdf's PDFs do; PDFKiln's PDFs end without the line break.
 - **PDFKit**, 1 test, with PDFKiln 1.3.0. Google's “unusual traffic” page: the test converts a Google search page; on these machines Google answers PDFKiln's request with that page, and PDFKiln stops with an error, while wkhtmltopdf 0.12.6 and marqius-wkhtmltopdf are sent the search page itself.
-- **java-wkhtmltopdf-wrapper**, 2 tests, with marqius-wkhtmltopdf 0.12.12. The test runner says: “Process (/usr/local/bin/wkhtmltopdf /tmp/java-wkhtmltopdf-wrappercc2520b4-1742-4f06-ac32-cf5acbb2c5b58139879939578635466.html /tmp/java-wkhtmltopdf-wrapper30a4 … 9955732897613.html http://www.google.com /tmp/java-wkhtmltopdf-wrapperb2d85ee0-e340-4f03-99fa-87c2bd0a496023451377658944091.html -) exited with status code 1:”
-- **java-wkhtmltopdf-wrapper**, 1 test, with marqius-wkhtmltopdf 0.12.12. The test runner says: “Process (/usr/local/bin/wkhtmltopdf --javascript-delay 2000 http://www.google.com -) exited with status code 1:”
-- **java-wkhtmltopdf-wrapper**, 1 test, with marqius-wkhtmltopdf 0.12.12. The test runner says: “Process (xvfb-run --auto-servernum --server-num=1 /usr/local/bin/wkhtmltopdf http://www.google.com -) exited with status code 1:”
-- **pdf_generator**, 1 test, with PDFKiln 1.3.0. The test runner says: “** (ExUnit.AssertionError)”
-- **pdf_generator**, 1 test, with PDFKiln 1.3.0. The test runner says: “** (ArgumentError) construction of binary failed: segment 2 of type 'binary': expected a binary but got: {:generator_failed, "xvfb-run: error: Xvfb failed to start\n"}”
 
 **Check these results.** Each run's files are attested by the run that made them. With the GitHub CLI, signed in:
 
