@@ -85,7 +85,11 @@ def go(p):
         elif e.get("Action") in ("pass", "fail", "skip"):
             why = ""
             if e["Action"] == "fail":
-                lines = [x.strip() for x in output.get(key, []) if x.strip() and not x.strip().startswith(("=== ", "--- "))]
+                # go test -json cuts a long line into several pieces, and a progress bar redraws itself
+                # with carriage returns, so the program's error can sit between two bars: join the
+                # pieces back into the test's output, then split it at line ends and carriage returns
+                lines = [y.strip() for y in re.split(r"[\r\n]+", "".join(output.get(key, [])))
+                         if y.strip() and not y.strip().startswith(("=== ", "--- "))]
                 # the program's own words first (wkhtmltopdf's "Error:", "Failed to load", "Exit with
                 # code"), then the test's (testify's "Error:", a file:line message)
                 prog = ([x for x in lines if x.startswith("Error:") and "Failed to load" in x]
@@ -105,7 +109,12 @@ def jsonl(p):
             e = json.loads(line)
         except ValueError:
             continue
-        r[e.get("name", "")] = [{"passed": "pass", "failed": "fail"}.get(e.get("status"), "skip"), one_line(e.get("message", ""))]
+        why = e.get("message", "")
+        lines = [x.strip() for x in why.splitlines() if x.strip()]
+        # a bare "** (ExUnit.AssertionError)" says what failed only in the lines after it
+        if lines and re.fullmatch(r"\*\* \([\w.]+\)", lines[0]):
+            why = " ".join(lines)
+        r[e.get("name", "")] = [{"passed": "pass", "failed": "fail"}.get(e.get("status"), "skip"), one_line(why)]
     return r
 
 

@@ -1,8 +1,11 @@
 # Plain-words reasons for failures, shown beside a failure only while it matches. counted: no marks
-# tests that drive another program instead of wkhtmltopdf; they are shown, and not counted for or against anyone.
+# failures that say nothing about the program: tests that drive another program instead of wkhtmltopdf, or a
+# test in which the program never ran; they are shown, and not counted for or against anyone.
 # library	programs (* or names)	test (regular expression)	what the runner says (regular expression)	note	counted
 go-wkhtmltopdf	*	 (TestGeneratePdfFromStdinHtml5|TestTOCAndCustomFooter)$	loremflickr	Pictures from loremflickr.com: the test pages load pictures from loremflickr.com, which now answers with an error, and wkhtmltopdf 0.12.6 stops when a picture does not load.	yes
+go-wkhtmltopdf	*	.	google\.com/sorry	Google's “Too Many Requests” page: these tests convert google.com, and Google answered this machine's requests with that page instead, so the program stopped with an error, as wkhtmltopdf 0.12.6 does when a page does not load. Each program runs on its own machine, and Google refuses some machines and not others.	yes
 pdf_generator	*	^test chrome	.	Chrome, not wkhtmltopdf: the library's tests of its Chrome option drive Google Chrome through its own Node helper, and on these machines they mostly do not finish within ExUnit's one-minute limit; they are shown, and not counted.	no
+pdf_generator	*	.	Xvfb failed to start	A virtual display that did not start: the library starts the program inside a virtual display (xvfb-run), which failed to start on this machine, so the program never ran in this test; it is shown, and not counted.	no
 django-wkhtmltopdf	*	::test_pdf_template_(view|response)(_to_browser)?$	CalledProcessError	A footer with missing files: the test footer loads a script and a picture that do not exist, and wkhtmltopdf 0.12.6 stops with an error on that.	yes
 django-wkhtmltopdf	pdfkiln	.	endswith\(b'%%EOF\\n'\)	How a PDF ends: the tests check that the PDF ends with “%%EOF” and a line break, as wkhtmltopdf's PDFs do; PDFKiln's PDFs end without the line break.	yes
 pdfkit-ruby	pdfkiln	ampersands in URLs	exitstatus=1	Google's “unusual traffic” page: the test converts a Google search page; on these machines Google answers PDFKiln's request with that page, and PDFKiln stops with an error, while wkhtmltopdf 0.12.6 and marqius-wkhtmltopdf are sent the search page itself.	yes

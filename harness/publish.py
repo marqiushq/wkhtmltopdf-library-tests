@@ -43,9 +43,20 @@ def note_for(lib, prog, test, reason):
     return None
 
 
-def counted(lib, test):
-    """False for a test that drives another program instead of wkhtmltopdf (notes.tsv, counted: no)."""
-    return not any(l == lib and not c and t.search(test) for l, _, t, _, _, c in NOTES)
+def excused(lib, prog, test, reason):
+    """True for a failure that a note marked counted: no explains: a test that drives another program
+    instead of wkhtmltopdf, or one in which the program never ran. The first note that matches decides,
+    as it decides which note is shown, so a failure is excused only while its note matches it."""
+    for l, progs, t, r, _, c in NOTES:
+        if l == lib and (progs == "*" or prog in progs.split(",")) and t.search(test) and r.search(reason or ""):
+            return not c
+    return False
+
+
+def reason_of(cell, test):
+    """What the runner said about TEST in CELL ("missing" when the cell has no such test)."""
+    v = cell["tests"].get(test)
+    return "missing" if v is None else (v[1] if len(v) > 1 else "")
 
 
 def plain(reason):
@@ -68,19 +79,20 @@ def why_lines(lib_list, by, versions):
             for t, v in c["tests"].items():
                 if v[0] == "fail":
                     note = note_for(lib["key"], p, t, v[1])
-                    per_test.setdefault((t, note or plain(v[1]) or "no reason given"), {"programs": set(), "note": note, "said": v[1]})["programs"].add(p)
+                    per_test.setdefault((t, note or plain(v[1]) or "no reason given"),
+                                        {"programs": set(), "note": note, "said": v[1], "excused": excused(lib["key"], p, t, v[1])})["programs"].add(p)
         for (t, why), d in per_test.items():
-            if not counted(lib["key"], t):
+            if d["excused"]:
                 d["programs"] = set(PROGRAMS)  # shown once, whichever programs it failed with this time
             key = (lib["key"], why, frozenset(d["programs"]))
-            g = groups.setdefault(key, {"lib": lib, "tests": set(), "programs": d["programs"], "note": d["note"], "said": d["said"]})
+            g = groups.setdefault(key, {"lib": lib, "tests": set(), "programs": d["programs"], "note": d["note"], "said": d["said"], "excused": d["excused"]})
             g["tests"].add(t)
     order = {lib["key"]: i for i, lib in enumerate(lib_list)}
     rank = lambda g: (len(g["programs"]) != 3, "wkhtmltopdf" not in g["programs"], order[g["lib"]["key"]])
     out = []
     for g in sorted(groups.values(), key=rank):
         k = len(g["tests"])
-        if not counted(g["lib"]["key"], next(iter(g["tests"]))):
+        if g["excused"]:
             who = "not counted"
         else:
             who = "with all three programs" if len(g["programs"]) == 3 else "with " + " and ".join(n[p] for p in PROGRAMS if p in g["programs"])
@@ -107,15 +119,18 @@ def names(versions):
 
 def judge(base, cell):
     """How CELL compares with the baseline: (word, tests lost, tests gained). Lost: pass with
-    wkhtmltopdf 0.12.6, not here. Gained: fail with wkhtmltopdf 0.12.6, pass here. Tests that drive
-    another program (notes.tsv, counted: no) are left out of both."""
+    wkhtmltopdf 0.12.6, not here. Gained: fail with wkhtmltopdf 0.12.6, pass here. A failure that a
+    note marked counted: no explains is left out of both."""
     if cell is None or cell["state"] == "did not run":
         return "did not run", [], []
     if base is None or base["state"] == "did not run":
         return ("passed" if cell["state"] == "passed" else "failed"), [], []
     lib = cell["library"]
-    lost = sorted(t for t, v in base["tests"].items() if v[0] == "pass" and cell["tests"].get(t, ["missing"])[0] != "pass" and counted(lib, t))
-    gained = sorted(t for t, v in base["tests"].items() if v[0] == "fail" and cell["tests"].get(t, ["missing"])[0] == "pass" and counted(lib, t))
+    prog = cell["program"]
+    lost = sorted(t for t, v in base["tests"].items() if v[0] == "pass" and cell["tests"].get(t, ["missing"])[0] != "pass"
+                  and not excused(lib, prog, t, reason_of(cell, t)))
+    gained = sorted(t for t, v in base["tests"].items() if v[0] == "fail" and cell["tests"].get(t, ["missing"])[0] == "pass"
+                    and not excused(lib, "wkhtmltopdf", t, reason_of(base, t)))
     if cell["state"] == "no results":
         return "no results", lost, gained
     return ("keeps up" if not lost else "behind"), lost, gained
