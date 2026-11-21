@@ -1,17 +1,17 @@
-# Runs the wkhtmltopdf libraries' own test suites with three programs in wkhtmltopdf's place, on
+# Runs the wkhtmltopdf libraries' own test suites with programs in wkhtmltopdf's place, on
 # GitHub's own machines, and files what each suite reported under results/ with a link back to the
 # run, so anyone can read the log behind every number.
 #
-#   every day      when either replacement has a version no run has tested: that pair of versions;
-#                  on Mondays the latest pair again, so a change in the world shows within a week.
+#   every day      when marqius-wkhtmltopdf has a version no run has tested: that version;
+#                  on Mondays the latest again, so a change in the world shows within a week.
 #                  The scheduled run starts that run by hand (workflow_dispatch) rather than testing
 #                  itself: a scheduled event does not say whether the repository is public, and the
 #                  results' attestation is signed according to that
 #   by hand        Actions > Libraries > Run workflow: the versions, libraries and machines to test
 #   at a release   each marqius-wkhtmltopdf release ends by sending a repository_dispatch, type
-#                  marqius-wkhtmltopdf-release, client_payload {"version": "X.Y.Z"}: that version
-#                  with the latest PDFKiln, the same day
-#   on a change    to the harness or the lists: the latest pair; a pull request is tested the same
+#                  marqius-wkhtmltopdf-release, client_payload {"version": "X.Y.Z"}: that version,
+#                  the same day
+#   on a change    to the harness or the lists: the latest version; a pull request is tested the same
 #                  way, and nothing is filed for it
 #
 # Each cell is one library with one program on a fresh machine. Its colour is the suite's own
@@ -31,10 +31,6 @@ on:
     inputs:
       marqius:
         description: "marqius-wkhtmltopdf version (empty: the latest)"
-        required: false
-        default: ""
-      pdfkiln:
-        description: "PDFKiln version (empty: the latest)"
         required: false
         default: ""
       libraries:
@@ -69,7 +65,6 @@ jobs:
     outputs:
       run: ${{ steps.plan.outputs.run }}
       marqius: ${{ steps.plan.outputs.marqius }}
-      pdfkiln: ${{ steps.plan.outputs.pdfkiln }}
       pair: ${{ steps.plan.outputs.pair }}
       archs: ${{ steps.plan.outputs.archs }}
       matrix: ${{ steps.plan.outputs.matrix }}
@@ -81,7 +76,6 @@ jobs:
           EVENT: ${{ github.event_name }}
           # by hand, the inputs; at a release, the dispatch's payload (plan.py checks every value)
           INPUT_MARQIUS: ${{ inputs.marqius || github.event.client_payload.version }}
-          INPUT_PDFKILN: ${{ inputs.pdfkiln }}
           INPUT_LIBRARIES: ${{ inputs.libraries || github.event.client_payload.libraries }}
           INPUT_ARCHS: ${{ inputs.archs || github.event.client_payload.archs }}
           DEFAULT_ARCHS: ${{ vars.ARCHS }}
@@ -92,8 +86,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           MARQIUS: ${{ steps.plan.outputs.marqius }}
-          PDFKILN: ${{ steps.plan.outputs.pdfkiln }}
-        run: gh workflow run libraries.yml --repo "$GITHUB_REPOSITORY" --ref main -f marqius="$MARQIUS" -f pdfkiln="$PDFKILN" -f publish=true
+        run: gh workflow run libraries.yml --repo "$GITHUB_REPOSITORY" --ref main -f marqius="$MARQIUS" -f publish=true
 
   programs:
     needs: plan
@@ -101,14 +94,13 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - name: Download the three programs and check their SHA-256 and attestations
+      - name: Download the programs and check their SHA-256 and attestations
         env:
           GH_TOKEN: ${{ github.token }}
           MARQIUS: ${{ needs.plan.outputs.marqius }}
-          PDFKILN: ${{ needs.plan.outputs.pdfkiln }}
           ARCHS: ${{ join(fromJSON(needs.plan.outputs.archs), ' ') }}
         run: |
-          bash harness/programs.sh "$MARQIUS" "$PDFKILN" "$ARCHS" programs
+          bash harness/programs.sh "$MARQIUS" "$ARCHS" programs
           mkdir -p programs-list && cp programs/programs.json programs-list/
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:

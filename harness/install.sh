@@ -5,7 +5,7 @@
 # program (exec), so the library talks to the program itself. A small page is converted first,
 # to show the program works on this machine before any test runs.
 #
-#   bash harness/install.sh wkhtmltopdf|marqius|pdfkiln PROGRAMS_DIR ARCH
+#   bash harness/install.sh wkhtmltopdf|marqius PROGRAMS_DIR ARCH
 set -euo pipefail
 prog=$1 arch=$3
 dir=$(cd "$2" && pwd)
@@ -31,15 +31,6 @@ case $prog in
         got=$(sha256sum "$real" | cut -c1-64)
         [ "$got" = "$(f sha256)" ] || { echo "::error::installed marqius-wkhtmltopdf is $got, not the checked $(f sha256)" >&2; exit 1; }
         ;;
-    pdfkiln)
-        # its package, with what it recommends, as `apt install` does; its own links are
-        # /usr/bin/wkhtmltopdf and wkhtmltoimage -> /usr/lib/pdfkiln/pdfkiln, which reads the name it was called by
-        sudo apt-get install -y "$dir/$file"
-        # one wkhtmltopdf per machine, at /usr/local/bin as with upstream's package: its links in
-        # /usr/bin move aside (some libraries' tests count on finding the program in one place only)
-        sudo mkdir -p /opt/pdfkiln-links
-        sudo mv /usr/bin/wkhtmltopdf /usr/bin/wkhtmltoimage /opt/pdfkiln-links/
-        pdf=/usr/lib/pdfkiln/pdfkiln img=/usr/lib/pdfkiln/pdfkiln real=/usr/lib/pdfkiln/pdfkiln ;;
     *) echo "::error::unknown program $prog" >&2; exit 1 ;;
 esac
 

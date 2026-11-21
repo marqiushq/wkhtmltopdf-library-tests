@@ -16,7 +16,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-PROGRAMS = ("wkhtmltopdf", "marqius", "pdfkiln")
+PROGRAMS = ("wkhtmltopdf", "marqius")
 START, END = "<!-- results:start -->", "<!-- results:end -->"
 
 
@@ -88,7 +88,7 @@ def why_lines(lib_list, by, versions):
             g = groups.setdefault(key, {"lib": lib, "tests": set(), "programs": d["programs"], "note": d["note"], "said": d["said"], "excused": d["excused"]})
             g["tests"].add(t)
     order = {lib["key"]: i for i, lib in enumerate(lib_list)}
-    rank = lambda g: (len(g["programs"]) != 3, "wkhtmltopdf" not in g["programs"], order[g["lib"]["key"]])
+    rank = lambda g: (len(g["programs"]) != len(PROGRAMS), "wkhtmltopdf" not in g["programs"], order[g["lib"]["key"]])
     out = []
     for g in sorted(groups.values(), key=rank):
         k = len(g["tests"])
@@ -113,8 +113,7 @@ def load_cells(artifacts):
 
 
 def names(versions):
-    return {"wkhtmltopdf": "wkhtmltopdf 0.12.6", "marqius": f"marqius-wkhtmltopdf {versions['marqius']}",
-            "pdfkiln": f"PDFKiln {versions['pdfkiln']}"}
+    return {"wkhtmltopdf": "wkhtmltopdf 0.12.6", "marqius": f"marqius-wkhtmltopdf {versions['marqius']}"}
 
 
 def judge(base, cell):
@@ -153,15 +152,15 @@ def counts_text(cell):
 def keeps_up(lib_list, by):
     """For each replacement: in how many libraries every counted test that passes with wkhtmltopdf 0.12.6 passes."""
     return {p: sum(judge(by.get(x["key"], {}).get("wkhtmltopdf"), by.get(x["key"], {}).get(p))[0] == "keeps up" for x in lib_list)
-            for p in ("marqius", "pdfkiln")}
+            for p in ("marqius",)}
 
 
 def table(lib_list, by, versions, run_url, arch, date, other=None):
     """The README's block: a headline per replacement, the table, what the marks mean; OTHER, the
     same pair's results on the other kind of machine, adds a line."""
     n = names(versions)
-    rows, keeps = [], {"marqius": 0, "pdfkiln": 0}
-    missing = {"marqius": [], "pdfkiln": []}
+    rows, keeps = [], {"marqius": 0}
+    missing = {"marqius": []}
     never, unbased = [], []
     for lib in lib_list:
         cells = by.get(lib["key"], {})
@@ -175,7 +174,7 @@ def table(lib_list, by, versions, run_url, arch, date, other=None):
             unbased.append(lib["name"])
         row = [f"[{lib['name']}](https://github.com/{lib['repo']}/tree/{lib['commit']}) {lib['release'].lstrip('vV')}",
                lib["language"], str(tests) if tests else "–", str(calls) if calls is not None else "–", counts_text(base)]
-        for p in ("marqius", "pdfkiln"):
+        for p in ("marqius",):
             word, lost, _ = judge(base, cells.get(p))
             if word == "keeps up":
                 keeps[p] += 1
@@ -193,7 +192,7 @@ def table(lib_list, by, versions, run_url, arch, date, other=None):
         return f" ({', '.join(m)} did not run)" if m else ""
 
     head = (f"With **{n['marqius']}**, every test that passes with wkhtmltopdf 0.12.6 also passes in **{keeps['marqius']} of {total}** "
-            f"libraries{unrun('marqius')}. With **{n['pdfkiln']}**, in **{keeps['pdfkiln']} of {total}**{unrun('pdfkiln')}.")
+            f"libraries{unrun('marqius')}.")
     if unbased:
         head += (f" {', '.join(unbased)} could not be compared in this run: wkhtmltopdf 0.12.6's "
                  f"{'run' if len(unbased) == 1 else 'runs'} did not finish (see the run).")
@@ -206,10 +205,10 @@ def table(lib_list, by, versions, run_url, arch, date, other=None):
         k = keeps_up(other["libraries"], ob)
         shown = {"arm64": "ARM64", "x86-64": "x86-64"}[other["arch"]]
         line += (f" On {shown} machines ([run of {other['date']}]({other['run_url']}), [report](results/{versions['pair']}/{other['arch']}/report.md)): "
-                 f"{n['marqius']} in {k['marqius']} of {len(other['libraries'])}, {n['pdfkiln']} in {k['pdfkiln']} of {len(other['libraries'])}.")
+                 f"{n['marqius']} in {k['marqius']} of {len(other['libraries'])}.")
     out = [START, "", head, "", line, "",
-           f"| Library | Language | Tests | Program runs | wkhtmltopdf 0.12.6 | {n['marqius']} | {n['pdfkiln']} |",
-           "|---|---|--:|--:|---|---|---|"]
+           f"| Library | Language | Tests | Program runs | wkhtmltopdf 0.12.6 | {n['marqius']} |",
+           "|---|---|--:|--:|---|---|"]
     out += ["| " + " | ".join(r) + " |" for r in rows]
     out += ["",
             "✓ every test that passes with wkhtmltopdf 0.12.6 passes with this program too. "
@@ -230,7 +229,7 @@ def report(lib_list, by, versions, programs, run_url, arch, date):
     """results/PAIR/ARCH/report.md: everything the run found, library by library."""
     n = names(versions)
     files = {(f["program"], f["arch"]): f for f in programs.get("files", [])}
-    out = [f"# Library test suites: {n['marqius']} and {n['pdfkiln']}, with wkhtmltopdf 0.12.6", "",
+    out = [f"# Library test suites: {n['marqius']}, with wkhtmltopdf 0.12.6", "",
            f"Run of {date} on GitHub's Ubuntu 24.04 machines ({arch}): {run_url}", "",
            "## The programs", "", "| Program | File | SHA-256 | Checked against | Provenance attestation | Says (`wkhtmltopdf -V`) |", "|---|---|---|---|---|---|"]
     says = {}
@@ -285,11 +284,12 @@ def report(lib_list, by, versions, programs, run_url, arch, date):
 
 
 def best_pair(arch):
-    """The pair of versions on file to show: the newest marqius-wkhtmltopdf, then the newest PDFKiln."""
+    """The results on file to show: the newest marqius-wkhtmltopdf, then the newest run."""
     best = None
     for p in (ROOT / "results").glob(f"*/{arch}/results.json"):
         d = json.loads(p.read_text())
-        k = (vkey(d["versions"]["marqius"]), vkey(d["versions"]["pdfkiln"]), d["date"])
+        run = re.search(r"/runs/(\d+)", d.get("run_url", ""))
+        k = (vkey(d["versions"]["marqius"]), int(run.group(1)) if run else 0)
         if best is None or k > best[0]:
             best = (k, d)
     return best[1] if best else None
@@ -308,8 +308,8 @@ def main():
     programs = json.loads(Path(a.programs).read_text())
     cells = load_cells(a.artifacts)
     v = {f["program"]: f["version"] for f in programs["files"]}
-    versions = {"marqius": v["marqius"], "pdfkiln": v["pdfkiln"], "wkhtmltopdf": v["wkhtmltopdf"]}
-    versions["pair"] = f"marqius-wkhtmltopdf-{versions['marqius']}_pdfkiln-{versions['pdfkiln']}"
+    versions = {"marqius": v["marqius"], "wkhtmltopdf": v["wkhtmltopdf"]}
+    versions["pair"] = f"marqius-wkhtmltopdf-{versions['marqius']}"
     run_url = os.environ.get("RUN_URL", "")
     date = datetime.datetime.now(datetime.timezone.utc).strftime("%-d %B %Y")
     archs = sorted({c["arch"] for c in cells})
@@ -335,8 +335,8 @@ def main():
         subjects += [d / "results.json", d / "report.md"]
         hist = ROOT / "results" / "history.tsv"
         rows = hist.read_text().splitlines() if hist.exists() else ["date\tarch\tmarqius-wkhtmltopdf\tpdfkiln\tlibraries\tmarqius keeps up\tpdfkiln keeps up\trun"]
-        k = {p: sum(judge(by[x["key"]].get("wkhtmltopdf"), by[x["key"]].get(p))[0] == "keeps up" for x in ran) for p in ("marqius", "pdfkiln")}
-        rows.append("\t".join([date, arch, versions["marqius"], versions["pdfkiln"], str(len(ran)), str(k["marqius"]), str(k["pdfkiln"]), run_url]))
+        k = {p: sum(judge(by[x["key"]].get("wkhtmltopdf"), by[x["key"]].get(p))[0] == "keeps up" for x in ran) for p in ("marqius",)}
+        rows.append("\t".join([date, arch, versions["marqius"], "", str(len(ran)), str(k["marqius"]), "", run_url]))
         hist.write_text("\n".join(rows) + "\n")
         filed.append(f"{versions['pair']} ({arch})")
     if a.summary:

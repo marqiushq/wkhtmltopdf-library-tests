@@ -37,23 +37,6 @@
         }
       },
       "attestations": "marqiushq/marqius-wkhtmltopdf"
-    },
-    {
-      "key": "pdfkiln",
-      "name": "PDFKiln",
-      "role": "replacement",
-      "latest": "https://api.github.com/repos/pdfkiln/pdfkiln/releases/latest",
-      "download": "https://github.com/pdfkiln/pdfkiln/releases/download",
-      "how": "its Debian and Ubuntu package from its GitHub release, checked against the release's SHA256SUMS, installed with apt as its documentation says (it sets up Chromium's sandbox on Ubuntu 24.04)",
-      "files": {
-        "x86-64": {
-          "file": "pdfkiln_{version}-1_amd64.deb"
-        },
-        "arm64": {
-          "file": "pdfkiln_{version}-1_arm64.deb"
-        }
-      },
-      "attestations": "pdfkiln/pdfkiln"
     }
   ]
 }
