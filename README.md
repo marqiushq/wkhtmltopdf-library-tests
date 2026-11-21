@@ -8,6 +8,8 @@
 
 > marqius-wkhtmltopdf is a paid product of Simple AI LLC, which publishes these tests. The harness is open (MIT). We publish the misses along with the matches. If anything here looks unfair to either program, open an issue.
 
+Printing reports from Odoo or ERPNext? [wkhtmltopdf for Odoo and ERPNext](https://github.com/marqiushq/wkhtmltopdf-odoo-erpnext) prints their standard reports through their own Print buttons with the same two programs.
+
 ## The results
 
 <!-- results:start -->
