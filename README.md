@@ -14,11 +14,11 @@ Printing reports from Odoo or ERPNext? [wkhtmltopdf for Odoo and ERPNext](https:
 
 <!-- results:start -->
 
-With **marqius-wkhtmltopdf 0.12.16**, every test that passes with wkhtmltopdf 0.12.6 also passes in **13 of 15** libraries. java-wkhtmltopdf-wrapper could not be compared in this run: wkhtmltopdf 0.12.6's run did not finish (see the run).
+With **marqius-wkhtmltopdf 0.12.17**, every test that passes with wkhtmltopdf 0.12.6 also passes in **14 of 15** libraries.
 
-Run of 24 November 2026 on GitHub's Ubuntu 24.04 machines (x86-64): [the run and its logs](https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45397602365), [every failure and its reason](results/marqius-wkhtmltopdf-0.12.16/x86-64/report.md). On ARM64 machines ([run of 24 November 2026](https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45397602365), [report](results/marqius-wkhtmltopdf-0.12.16/arm64/report.md)): marqius-wkhtmltopdf 0.12.16 in 14 of 15.
+Run of 24 November 2026 on GitHub's Ubuntu 24.04 machines (x86-64): [the run and its logs](https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45405834729), [every failure and its reason](results/marqius-wkhtmltopdf-0.12.17/x86-64/report.md). On ARM64 machines ([run of 24 November 2026](https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45405834729), [report](results/marqius-wkhtmltopdf-0.12.17/arm64/report.md)): marqius-wkhtmltopdf 0.12.17 in 14 of 15.
 
-| Library | Language | Tests | Program runs | wkhtmltopdf 0.12.6 | marqius-wkhtmltopdf 0.12.16 |
+| Library | Language | Tests | Program runs | wkhtmltopdf 0.12.6 | marqius-wkhtmltopdf 0.12.17 |
 |---|---|--:|--:|---|---|
 | [python-pdfkit](https://github.com/JazzCore/python-pdfkit/tree/c7c609f46512f40e3bd6009bcb17bc1201316753) 1.0.0 | Python | 47 | 9 | 47 passed | ✓ 47 passed |
 | [imgkit](https://github.com/jarrekk/imgkit/tree/3ee9977004a7ad24aaa71890f4591ce646d0b95e) 1.2.3 | Python | 48 | 9 | 48 passed | ✓ 48 passed |
@@ -29,11 +29,11 @@ Run of 24 November 2026 on GitHub's Ubuntu 24.04 machines (x86-64): [the run and
 | [KnpSnappyBundle](https://github.com/KnpLabs/KnpSnappyBundle/tree/9501e76b63158bc6c390065ede40963d5a94b065) 1.10.6 | PHP, Symfony | 26 | 0 | 26 passed | ✓ 26 passed |
 | [CakePdf](https://github.com/FriendsOfCake/CakePdf/tree/9c478eba9fa697513b5fd7ec69cdf0a37d81869c) 5.3.0 | PHP, CakePHP | 34 | 0 | 33 passed, 1 skipped | ✓ 33 passed, 1 skipped |
 | [wicked_pdf](https://github.com/mileszs/wicked_pdf/tree/edcd80e7a96b5fe79476f7984e5ff8f3765f220d) 2.7.0 | Ruby, Rails | 45 | 8 | 45 passed | ✓ 45 passed |
-| [PDFKit](https://github.com/pdfkit/pdfkit/tree/762b366e9420f8d2b9fc50a372b51094a0247dd4) 0.8.7.3 | Ruby | 182 | 71 | 180 passed, 2 skipped | ✓ 180 passed, 2 skipped |
+| [PDFKit](https://github.com/pdfkit/pdfkit/tree/762b366e9420f8d2b9fc50a372b51094a0247dd4) 0.8.7.3 | Ruby | 182 | 68 | 180 passed, 2 skipped | ✓ 180 passed, 2 skipped |
 | [wkhtmltopdf for Node](https://github.com/devongovett/node-wkhtmltopdf/tree/51745d803a65134dd87c30fd3276ca48630e467d) 0.4.0 | JavaScript | 5 | 5 | 5 passed | ✓ 5 passed |
 | [go-wkhtmltopdf](https://github.com/SebastiaanKlippert/go-wkhtmltopdf/tree/efe6a2047eb2c6bb25cced3b07f8ea4ebef516ba) 1.9.3 | Go | 35 | 16 | 32 passed, 2 failed, 1 skipped | ✗ 31 passed, 2 failed, 1 skipped (1 test that passes with wkhtmltopdf) |
-| [java-wkhtmltopdf-wrapper](https://github.com/jhonnymertz/java-wkhtmltopdf-wrapper/tree/13c44f0743ef1e8b17b7e1716eb4cfd482e79f12) 1.3.1-RELEASE | Java | 30 | 13 | did not run | 30 passed |
-| [pdf_generator](https://github.com/gutschilla/elixir-pdf-generator/tree/9c4fa3b40f5c4d79f065a3a73bf33a5e7a5ad17f) 0.6.2 | Elixir | 15 | 11 | 12 passed, 3 failed | ✓ 12 passed, 3 failed |
+| [java-wkhtmltopdf-wrapper](https://github.com/jhonnymertz/java-wkhtmltopdf-wrapper/tree/13c44f0743ef1e8b17b7e1716eb4cfd482e79f12) 1.3.1-RELEASE | Java | 30 | 12 | 30 passed | ✓ 30 passed |
+| [pdf_generator](https://github.com/gutschilla/elixir-pdf-generator/tree/9c4fa3b40f5c4d79f065a3a73bf33a5e7a5ad17f) 0.6.2 | Elixir | 15 | 11 | 13 passed, 2 failed | ✓ 12 passed, 3 failed |
 | [Rotativa.AspNetCore](https://github.com/webgio/Rotativa.AspNetCore/tree/84c470e82f2fec13e1d4755c86fee90a9606c3ac) 1.5.0 | .NET | 10 | 4 | 10 passed | ✓ 10 passed |
 
 ✓ every test that passes with wkhtmltopdf 0.12.6 passes with this program too. ✗ some do not: the number in brackets. The figures are what each test runner reported; a test that fails with wkhtmltopdf 0.12.6 too, or that drives another program instead of wkhtmltopdf (marked “not counted” below), is not held against either program. Program runs: how many times the suite started wkhtmltopdf or wkhtmltoimage.
@@ -42,8 +42,8 @@ Snappy, KnpSnappyBundle, CakePdf: their tests never start the program. They chec
 
 **What fails, and why.** Failures that wkhtmltopdf 0.12.6 has too come first: they are not held against either program.
 
-- **django-wkhtmltopdf**, 4 tests, with wkhtmltopdf 0.12.6 and marqius-wkhtmltopdf 0.12.16. A footer with missing files: the test footer loads a script and a picture that do not exist, and wkhtmltopdf 0.12.6 stops with an error on that.
-- **go-wkhtmltopdf**, 2 tests, with wkhtmltopdf 0.12.6 and marqius-wkhtmltopdf 0.12.16. Pictures from loremflickr.com: the test pages load pictures from loremflickr.com, which now answers with an error, and wkhtmltopdf 0.12.6 stops when a picture does not load.
+- **django-wkhtmltopdf**, 4 tests, with wkhtmltopdf 0.12.6 and marqius-wkhtmltopdf 0.12.17. A footer with missing files: the test footer loads a script and a picture that do not exist, and wkhtmltopdf 0.12.6 stops with an error on that.
+- **go-wkhtmltopdf**, 2 tests, with wkhtmltopdf 0.12.6 and marqius-wkhtmltopdf 0.12.17. Pictures from loremflickr.com: the test pages load pictures from loremflickr.com, which now answers with an error, and wkhtmltopdf 0.12.6 stops when a picture does not load.
 - **pdf_generator**, 3 tests, not counted. Chrome, not wkhtmltopdf: the library's tests of its Chrome option drive Google Chrome through its own Node helper, and on these machines they mostly do not finish within ExUnit's one-minute limit; they are shown, and not counted.
 
 **Check these results.** Each run's files are attested by the run that made them. With the GitHub CLI, signed in:
@@ -51,7 +51,7 @@ Snappy, KnpSnappyBundle, CakePdf: their tests never start the program. They chec
 ```bash
 git clone https://github.com/marqiushq/wkhtmltopdf-library-tests.git
 cd wkhtmltopdf-library-tests
-gh attestation verify results/marqius-wkhtmltopdf-0.12.16/x86-64/results.json -R marqiushq/wkhtmltopdf-library-tests
+gh attestation verify results/marqius-wkhtmltopdf-0.12.17/x86-64/results.json -R marqiushq/wkhtmltopdf-library-tests
 ```
 
 It shows the workflow, the commit and the run that made the file.

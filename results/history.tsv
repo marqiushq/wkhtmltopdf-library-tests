@@ -19,3 +19,5 @@ date	arch	marqius-wkhtmltopdf	pdfkiln	libraries	marqius keeps up	pdfkiln keeps u
 24 November 2026	x86-64	0.12.15		15	14		https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45363152510
 24 November 2026	arm64	0.12.16		15	14		https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45397602365
 24 November 2026	x86-64	0.12.16		15	13		https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45397602365
+24 November 2026	arm64	0.12.17		15	14		https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45405834729
+24 November 2026	x86-64	0.12.17		15	14		https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45405834729
