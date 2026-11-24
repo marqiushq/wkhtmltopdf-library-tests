@@ -1,6 +1,6 @@
 {
  "date": "24 November 2026",
- "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45338508356",
+ "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45340799688",
  "arch": "arm64",
  "versions": {
   "marqius": "0.12.14",
@@ -285,7 +285,7 @@
    "arch": "arm64",
    "release": "5.3.0",
    "commit": "9c478eba9fa697513b5fd7ec69cdf0a37d81869c",
-   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45338508356",
+   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45340799688",
    "job": "CakePdf 5.3.0 · marqius-wkhtmltopdf 0.12.14 · arm64",
    "installed": {
     "program": "marqius",
@@ -467,7 +467,7 @@
    "arch": "arm64",
    "release": "5.3.0",
    "commit": "9c478eba9fa697513b5fd7ec69cdf0a37d81869c",
-   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45338508356",
+   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45340799688",
    "job": "CakePdf 5.3.0 · wkhtmltopdf 0.12.6 · arm64",
    "installed": {
     "program": "wkhtmltopdf",
@@ -631,7 +631,7 @@
    },
    "runner_says": 34,
    "runner_status": 0,
-   "seconds": 1,
+   "seconds": 0,
    "calls": 0,
    "conversions": 0,
    "options": [],
@@ -649,7 +649,7 @@
    "arch": "arm64",
    "release": "v3.4.0",
    "commit": "8a73477c7f2051bcc463fc8e7a2fdd7fec6d17fc",
-   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45338508356",
+   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45340799688",
    "job": "django-wkhtmltopdf v3.4.0 · marqius-wkhtmltopdf 0.12.14 · arm64",
    "installed": {
     "program": "marqius",
@@ -718,19 +718,19 @@
     ],
     "wkhtmltopdf.tests.tests.TestViews::test_pdf_template_response": [
      "fail",
-     "subprocess.CalledProcessError: Command '['/usr/local/bin/wkhtmltopdf', '--encoding', 'utf8', '--footer-html', '/tmp/wkhtmltopdfmcrfncnv.html', '--quiet', '--title', 'Test PDF', '/tmp/wkhtmltopdfoy8y4cek.html', '-']' returned non-zero exit status 1."
+     "subprocess.CalledProcessError: Command '['/usr/local/bin/wkhtmltopdf', '--encoding', 'utf8', '--footer-html', '/tmp/wkhtmltopdf4wc_l7bm.html', '--quiet', '--title', 'Test PDF', '/tmp/wkhtmltopdf3q4fvfuy.html', '-']' returned non-zero exit status 1."
     ],
     "wkhtmltopdf.tests.tests.TestViews::test_pdf_template_response_to_browser": [
      "fail",
-     "subprocess.CalledProcessError: Command '['/usr/local/bin/wkhtmltopdf', '--encoding', 'utf8', '--footer-html', '/tmp/wkhtmltopdfci650tpt.html', '--quiet', '--title', 'Test PDF', '/tmp/wkhtmltopdf6st59b4c.html', '-']' returned non-zero exit status 1."
+     "subprocess.CalledProcessError: Command '['/usr/local/bin/wkhtmltopdf', '--encoding', 'utf8', '--footer-html', '/tmp/wkhtmltopdf2b2xg1qd.html', '--quiet', '--title', 'Test PDF', '/tmp/wkhtmltopdfutfdpc0v.html', '-']' returned non-zero exit status 1."
     ],
     "wkhtmltopdf.tests.tests.TestViews::test_pdf_template_view": [
      "fail",
-     "subprocess.CalledProcessError: Command '['/usr/local/bin/wkhtmltopdf', '--encoding', 'utf8', '--footer-html', '/tmp/wkhtmltopdfpazd47x_.html', '--quiet', '/tmp/wkhtmltopdfbja8obcc.html', '-']' returned non-zero exit status 1."
+     "subprocess.CalledProcessError: Command '['/usr/local/bin/wkhtmltopdf', '--encoding', 'utf8', '--footer-html', '/tmp/wkhtmltopdfhaf5vn1a.html', '--quiet', '/tmp/wkhtmltopdfobcj5w6x.html', '-']' returned non-zero exit status 1."
     ],
     "wkhtmltopdf.tests.tests.TestViews::test_pdf_template_view_to_browser": [
      "fail",
-     "subprocess.CalledProcessError: Command '['/usr/local/bin/wkhtmltopdf', '--encoding', 'utf8', '--footer-html', '/tmp/wkhtmltopdfh42ew988.html', '--quiet', '/tmp/wkhtmltopdfvpbfgnyx.html', '-']' returned non-zero exit status 1."
+     "subprocess.CalledProcessError: Command '['/usr/local/bin/wkhtmltopdf', '--encoding', 'utf8', '--footer-html', '/tmp/wkhtmltopdfc4cktrue.html', '--quiet', '/tmp/wkhtmltopdfiidumyy_.html', '-']' returned non-zero exit status 1."
     ],
     "wkhtmltopdf.tests.tests.TestViews::test_pdf_template_view_unicode": [
      "pass",
@@ -749,7 +749,7 @@
    },
    "runner_says": 18,
    "runner_status": 1,
-   "seconds": 0,
+   "seconds": 1,
    "calls": 14,
    "conversions": 14,
    "options": [
@@ -772,7 +772,7 @@
    "arch": "arm64",
    "release": "v3.4.0",
    "commit": "8a73477c7f2051bcc463fc8e7a2fdd7fec6d17fc",
-   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45338508356",
+   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45340799688",
    "job": "django-wkhtmltopdf v3.4.0 · wkhtmltopdf 0.12.6 · arm64",
    "installed": {
     "program": "wkhtmltopdf",
@@ -841,19 +841,19 @@
     ],
     "wkhtmltopdf.tests.tests.TestViews::test_pdf_template_response": [
      "fail",
-     "subprocess.CalledProcessError: Command '['/usr/local/bin/wkhtmltopdf', '--encoding', 'utf8', '--footer-html', '/tmp/wkhtmltopdfc2jatc8h.html', '--quiet', '--title', 'Test PDF', '/tmp/wkhtmltopdfsudpm524.html', '-']' returned non-zero exit status 1."
+     "subprocess.CalledProcessError: Command '['/usr/local/bin/wkhtmltopdf', '--encoding', 'utf8', '--footer-html', '/tmp/wkhtmltopdfy5la9qx7.html', '--quiet', '--title', 'Test PDF', '/tmp/wkhtmltopdfovdmedqp.html', '-']' returned non-zero exit status 1."
     ],
     "wkhtmltopdf.tests.tests.TestViews::test_pdf_template_response_to_browser": [
      "fail",
-     "subprocess.CalledProcessError: Command '['/usr/local/bin/wkhtmltopdf', '--encoding', 'utf8', '--footer-html', '/tmp/wkhtmltopdfgz4yq4gc.html', '--quiet', '--title', 'Test PDF', '/tmp/wkhtmltopdfnue8n4wa.html', '-']' returned non-zero exit status 1."
+     "subprocess.CalledProcessError: Command '['/usr/local/bin/wkhtmltopdf', '--encoding', 'utf8', '--footer-html', '/tmp/wkhtmltopdf7lu5syy5.html', '--quiet', '--title', 'Test PDF', '/tmp/wkhtmltopdfbyp1c_4f.html', '-']' returned non-zero exit status 1."
     ],
     "wkhtmltopdf.tests.tests.TestViews::test_pdf_template_view": [
      "fail",
-     "subprocess.CalledProcessError: Command '['/usr/local/bin/wkhtmltopdf', '--encoding', 'utf8', '--footer-html', '/tmp/wkhtmltopdfzxxa9b3c.html', '--quiet', '/tmp/wkhtmltopdfjyi_whnp.html', '-']' returned non-zero exit status 1."
+     "subprocess.CalledProcessError: Command '['/usr/local/bin/wkhtmltopdf', '--encoding', 'utf8', '--footer-html', '/tmp/wkhtmltopdfg_qsqssw.html', '--quiet', '/tmp/wkhtmltopdfcfic_neb.html', '-']' returned non-zero exit status 1."
     ],
     "wkhtmltopdf.tests.tests.TestViews::test_pdf_template_view_to_browser": [
      "fail",
-     "subprocess.CalledProcessError: Command '['/usr/local/bin/wkhtmltopdf', '--encoding', 'utf8', '--footer-html', '/tmp/wkhtmltopdf41dobhms.html', '--quiet', '/tmp/wkhtmltopdfmwlfefhj.html', '-']' returned non-zero exit status 1."
+     "subprocess.CalledProcessError: Command '['/usr/local/bin/wkhtmltopdf', '--encoding', 'utf8', '--footer-html', '/tmp/wkhtmltopdfhprzgkuc.html', '--quiet', '/tmp/wkhtmltopdfqhpydn85.html', '-']' returned non-zero exit status 1."
     ],
     "wkhtmltopdf.tests.tests.TestViews::test_pdf_template_view_unicode": [
      "pass",
@@ -872,7 +872,7 @@
    },
    "runner_says": 18,
    "runner_status": 1,
-   "seconds": 5,
+   "seconds": 4,
    "calls": 14,
    "conversions": 14,
    "options": [
@@ -895,7 +895,7 @@
    "arch": "arm64",
    "release": "v1.9.3",
    "commit": "efe6a2047eb2c6bb25cced3b07f8ea4ebef516ba",
-   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45338508356",
+   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45340799688",
    "job": "go-wkhtmltopdf v1.9.3 · marqius-wkhtmltopdf 0.12.14 · arm64",
    "installed": {
     "program": "marqius",
@@ -1059,7 +1059,7 @@
    },
    "runner_says": null,
    "runner_status": 1,
-   "seconds": 17,
+   "seconds": 15,
    "calls": 16,
    "conversions": 16,
    "options": [
@@ -1103,7 +1103,7 @@
    "arch": "arm64",
    "release": "v1.9.3",
    "commit": "efe6a2047eb2c6bb25cced3b07f8ea4ebef516ba",
-   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45338508356",
+   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45340799688",
    "job": "go-wkhtmltopdf v1.9.3 · wkhtmltopdf 0.12.6 · arm64",
    "installed": {
     "program": "wkhtmltopdf",
@@ -1216,7 +1216,7 @@
     ],
     "github.com/SebastiaanKlippert/go-wkhtmltopdf TestTOCAndCustomFooter": [
      "fail",
-     "Error: Failed to load https://loremflickr.com/480/480, with network status code 299 and http status code 500 - Error downloading https://loremflickr.com/480/480 - server replied: Internal Server Error"
+     "Error: Failed to load https://loremflickr.com/420/420, with network status code 299 and http status code 500 - Error downloading https://loremflickr.com/420/420 - server replied: Internal Server Error"
     ],
     "github.com/SebastiaanKlippert/go-wkhtmltopdf TestUnitOptions": [
      "pass",
@@ -1271,7 +1271,7 @@
    },
    "runner_says": null,
    "runner_status": 1,
-   "seconds": 18,
+   "seconds": 20,
    "calls": 16,
    "conversions": 16,
    "options": [
@@ -1315,7 +1315,7 @@
    "arch": "arm64",
    "release": "V1.2.3",
    "commit": "3ee9977004a7ad24aaa71890f4591ce646d0b95e",
-   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45338508356",
+   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45340799688",
    "job": "imgkit V1.2.3 · marqius-wkhtmltopdf 0.12.14 · arm64",
    "installed": {
     "program": "marqius",
@@ -1556,7 +1556,7 @@
    "arch": "arm64",
    "release": "V1.2.3",
    "commit": "3ee9977004a7ad24aaa71890f4591ce646d0b95e",
-   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45338508356",
+   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45340799688",
    "job": "imgkit V1.2.3 · wkhtmltopdf 0.12.6 · arm64",
    "installed": {
     "program": "wkhtmltopdf",
@@ -1776,7 +1776,7 @@
    },
    "runner_says": 48,
    "runner_status": 0,
-   "seconds": 2,
+   "seconds": 3,
    "calls": 9,
    "conversions": 9,
    "options": [
@@ -1797,7 +1797,7 @@
    "arch": "arm64",
    "release": "1.3.1-RELEASE",
    "commit": "13c44f0743ef1e8b17b7e1716eb4cfd482e79f12",
-   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45338508356",
+   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45340799688",
    "job": "java-wkhtmltopdf-wrapper 1.3.1-RELEASE · marqius-wkhtmltopdf 0.12.14 · arm64",
    "installed": {
     "program": "marqius",
@@ -1947,7 +1947,7 @@
    "runner_status": 0,
    "seconds": 16,
    "calls": 13,
-   "conversions": 13,
+   "conversions": 12,
    "options": [
     "--exclude-from-outline",
     "--footer-center",
@@ -1970,7 +1970,7 @@
    "arch": "arm64",
    "release": "1.3.1-RELEASE",
    "commit": "13c44f0743ef1e8b17b7e1716eb4cfd482e79f12",
-   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45338508356",
+   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45340799688",
    "job": "java-wkhtmltopdf-wrapper 1.3.1-RELEASE · wkhtmltopdf 0.12.6 · arm64",
    "installed": {
     "program": "wkhtmltopdf",
@@ -2143,7 +2143,7 @@
    "arch": "arm64",
    "release": "v1.10.6",
    "commit": "9501e76b63158bc6c390065ede40963d5a94b065",
-   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45338508356",
+   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45340799688",
    "job": "KnpSnappyBundle v1.10.6 · marqius-wkhtmltopdf 0.12.14 · arm64",
    "installed": {
     "program": "marqius",
@@ -2275,7 +2275,7 @@
    },
    "runner_says": 26,
    "runner_status": 0,
-   "seconds": 0,
+   "seconds": 1,
    "calls": 0,
    "conversions": 0,
    "options": [],
@@ -2293,7 +2293,7 @@
    "arch": "arm64",
    "release": "v1.10.6",
    "commit": "9501e76b63158bc6c390065ede40963d5a94b065",
-   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45338508356",
+   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45340799688",
    "job": "KnpSnappyBundle v1.10.6 · wkhtmltopdf 0.12.6 · arm64",
    "installed": {
     "program": "wkhtmltopdf",
@@ -2443,7 +2443,7 @@
    "arch": "arm64",
    "release": "v1.0.5",
    "commit": "d702a7b712b63027d5bf5ad321afd84996305a2b",
-   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45338508356",
+   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45340799688",
    "job": "laravel-snappy v1.0.5 · marqius-wkhtmltopdf 0.12.14 · arm64",
    "installed": {
     "program": "marqius",
@@ -2515,7 +2515,7 @@
    "arch": "arm64",
    "release": "v1.0.5",
    "commit": "d702a7b712b63027d5bf5ad321afd84996305a2b",
-   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45338508356",
+   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45340799688",
    "job": "laravel-snappy v1.0.5 · wkhtmltopdf 0.12.6 · arm64",
    "installed": {
     "program": "wkhtmltopdf",
@@ -2587,7 +2587,7 @@
    "arch": "arm64",
    "release": "0.4.0",
    "commit": "51745d803a65134dd87c30fd3276ca48630e467d",
-   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45338508356",
+   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45340799688",
    "job": "wkhtmltopdf for Node 0.4.0 · marqius-wkhtmltopdf 0.12.14 · arm64",
    "installed": {
     "program": "marqius",
@@ -2635,7 +2635,7 @@
    },
    "runner_says": null,
    "runner_status": 0,
-   "seconds": 1,
+   "seconds": 0,
    "calls": 5,
    "conversions": 5,
    "options": [
@@ -2655,7 +2655,7 @@
    "arch": "arm64",
    "release": "0.4.0",
    "commit": "51745d803a65134dd87c30fd3276ca48630e467d",
-   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45338508356",
+   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45340799688",
    "job": "wkhtmltopdf for Node 0.4.0 · wkhtmltopdf 0.12.6 · arm64",
    "installed": {
     "program": "wkhtmltopdf",
@@ -2723,7 +2723,7 @@
    "arch": "arm64",
    "release": "v0.6.2",
    "commit": "9c4fa3b40f5c4d79f065a3a73bf33a5e7a5ad17f",
-   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45338508356",
+   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45340799688",
    "job": "pdf_generator v0.6.2 · marqius-wkhtmltopdf 0.12.14 · arm64",
    "installed": {
     "program": "marqius",
@@ -2742,6 +2742,10 @@
     "test": "failure"
    },
    "tests": {
+    "test chrome's no-sandbox option doesn't crash": [
+     "fail",
+     "** (FunctionClauseError) no function clause matching in IO.chardata_to_string/1"
+    ],
     "test chrome-headless from file": [
      "fail",
      "** (MatchError) no match of right hand side value: {:error, {:generator_failed, \"Error: Couldn't detect chrome version installed! use --chrome-binary to pass c … tests/wkhtmltopdf-library-tests/work/lib/priv/node_modules/chrome-headless-render-pdf/dist/index.js:689:39)\\n    at tryCatch (/home/runner/work/wkhtmltopdf-li"
@@ -2750,23 +2754,11 @@
      "fail",
      "** (ExUnit.AssertionError) Assertion with == failed code:  assert status == :ok left:  :error right: :ok"
     ],
-    "test chrome's no-sandbox option doesn't crash": [
-     "fail",
-     "** (FunctionClauseError) no function clause matching in IO.chardata_to_string/1"
-    ],
-    "test basic PDF generation": [
+    "test generate_binary reads file": [
      "pass",
      ""
     ],
-    "test generate! returns a filename": [
-     "pass",
-     ""
-    ],
-    "test command prefix with noop env": [
-     "pass",
-     ""
-    ],
-    "test agent startup": [
+    "test shell_params are accepted": [
      "pass",
      ""
     ],
@@ -2778,19 +2770,27 @@
      "pass",
      ""
     ],
+    "test command prefix with noop env": [
+     "pass",
+     ""
+    ],
+    "test basic PDF generation": [
+     "pass",
+     ""
+    ],
+    "test generate! returns a filename": [
+     "pass",
+     ""
+    ],
+    "test agent startup": [
+     "pass",
+     ""
+    ],
     "test delete_temporary works": [
      "pass",
      ""
     ],
-    "test shell_params are accepted": [
-     "pass",
-     ""
-    ],
     "test generate_binary! reads file": [
-     "pass",
-     ""
-    ],
-    "test generate_binary reads file": [
      "pass",
      ""
     ],
@@ -2833,7 +2833,7 @@
    "arch": "arm64",
    "release": "v0.6.2",
    "commit": "9c4fa3b40f5c4d79f065a3a73bf33a5e7a5ad17f",
-   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45338508356",
+   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45340799688",
    "job": "pdf_generator v0.6.2 · wkhtmltopdf 0.12.6 · arm64",
    "installed": {
     "program": "wkhtmltopdf",
@@ -2852,10 +2852,6 @@
     "test": "failure"
    },
    "tests": {
-    "test chrome's no-sandbox option doesn't crash": [
-     "fail",
-     "** (FunctionClauseError) no function clause matching in IO.chardata_to_string/1"
-    ],
     "test chrome-headless from URL (assuming google.com is up and running)": [
      "fail",
      "** (ExUnit.AssertionError) Assertion with == failed code:  assert status == :ok left:  :error right: :ok"
@@ -2864,11 +2860,15 @@
      "fail",
      "** (MatchError) no match of right hand side value: {:error, {:generator_failed, \"Error: Couldn't detect chrome version installed! use --chrome-binary to pass c … tests/wkhtmltopdf-library-tests/work/lib/priv/node_modules/chrome-headless-render-pdf/dist/index.js:689:39)\\n    at tryCatch (/home/runner/work/wkhtmltopdf-li"
     ],
+    "test chrome's no-sandbox option doesn't crash": [
+     "fail",
+     "** (FunctionClauseError) no function clause matching in IO.chardata_to_string/1"
+    ],
     "test generate_binary! reads file": [
      "pass",
      ""
     ],
-    "test generate_binary reads file": [
+    "test shell_params are accepted": [
      "pass",
      ""
     ],
@@ -2876,15 +2876,7 @@
      "pass",
      ""
     ],
-    "test command prefix with noop env": [
-     "pass",
-     ""
-    ],
-    "test delete_temporary works": [
-     "pass",
-     ""
-    ],
-    "test generate! with filename option returns custom filename": [
+    "test basic PDF generation": [
      "pass",
      ""
     ],
@@ -2892,15 +2884,23 @@
      "pass",
      ""
     ],
-    "test basic PDF generation": [
+    "test command prefix with noop env": [
+     "pass",
+     ""
+    ],
+    "test generate_binary reads file": [
+     "pass",
+     ""
+    ],
+    "test generate! with filename option returns custom filename": [
+     "pass",
+     ""
+    ],
+    "test delete_temporary works": [
      "pass",
      ""
     ],
     "test generate! returns a filename": [
-     "pass",
-     ""
-    ],
-    "test shell_params are accepted": [
      "pass",
      ""
     ],
@@ -2921,7 +2921,7 @@
    },
    "runner_says": 15,
    "runner_status": 2,
-   "seconds": 5,
+   "seconds": 4,
    "calls": 11,
    "conversions": 11,
    "options": [
@@ -2943,7 +2943,7 @@
    "arch": "arm64",
    "release": "v0.8.7.3",
    "commit": "762b366e9420f8d2b9fc50a372b51094a0247dd4",
-   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45338508356",
+   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45340799688",
    "job": "PDFKit v0.8.7.3 · marqius-wkhtmltopdf 0.12.14 · arm64",
    "installed": {
     "program": "marqius",
@@ -3729,7 +3729,7 @@
    "arch": "arm64",
    "release": "v0.8.7.3",
    "commit": "762b366e9420f8d2b9fc50a372b51094a0247dd4",
-   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45338508356",
+   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45340799688",
    "job": "PDFKit v0.8.7.3 · wkhtmltopdf 0.12.6 · arm64",
    "installed": {
     "program": "wkhtmltopdf",
@@ -4486,8 +4486,8 @@
    "runner_says": 182,
    "runner_status": 0,
    "seconds": 23,
-   "calls": 61,
-   "conversions": 61,
+   "calls": 67,
+   "conversions": 67,
    "options": [
     "--disable-smart-shrinking",
     "--encoding",
@@ -4515,7 +4515,7 @@
    "arch": "arm64",
    "release": "2.5.0",
    "commit": "17ee71341591415d942774eda2c98d8ba7ea9e90",
-   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45338508356",
+   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45340799688",
    "job": "phpwkhtmltopdf 2.5.0 · marqius-wkhtmltopdf 0.12.14 · arm64",
    "installed": {
     "program": "marqius",
@@ -4679,7 +4679,7 @@
    },
    "runner_says": 34,
    "runner_status": 0,
-   "seconds": 2,
+   "seconds": 1,
    "calls": 34,
    "conversions": 34,
    "options": [
@@ -4711,7 +4711,7 @@
    "arch": "arm64",
    "release": "2.5.0",
    "commit": "17ee71341591415d942774eda2c98d8ba7ea9e90",
-   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45338508356",
+   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45340799688",
    "job": "phpwkhtmltopdf 2.5.0 · wkhtmltopdf 0.12.6 · arm64",
    "installed": {
     "program": "wkhtmltopdf",
@@ -4907,7 +4907,7 @@
    "arch": "arm64",
    "release": "1.0.0",
    "commit": "c7c609f46512f40e3bd6009bcb17bc1201316753",
-   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45338508356",
+   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45340799688",
    "job": "python-pdfkit 1.0.0 · marqius-wkhtmltopdf 0.12.14 · arm64",
    "installed": {
     "program": "marqius",
@@ -5148,7 +5148,7 @@
    "arch": "arm64",
    "release": "1.0.0",
    "commit": "c7c609f46512f40e3bd6009bcb17bc1201316753",
-   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45338508356",
+   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45340799688",
    "job": "python-pdfkit 1.0.0 · wkhtmltopdf 0.12.6 · arm64",
    "installed": {
     "program": "wkhtmltopdf",
@@ -5389,7 +5389,7 @@
    "arch": "arm64",
    "release": "v1.5.0",
    "commit": "84c470e82f2fec13e1d4755c86fee90a9606c3ac",
-   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45338508356",
+   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45340799688",
    "job": "Rotativa.AspNetCore v1.5.0 · marqius-wkhtmltopdf 0.12.14 · arm64",
    "installed": {
     "program": "marqius",
@@ -5408,23 +5408,15 @@
     "test": "failure"
    },
    "tests": {
-    "can get the PDF from the contact link(url: \"http://localhost:5000\", site: \"Asp.net 10\")": [
+    "can get the jpg from the privacy image link(url: \"http://localhost:5000\", site: \"Asp.net 10\")": [
      "fail",
      "OpenQA.Selenium.WebDriverException : Selenium Manager process exited abnormally with 65 code: /home/runner/work/wkhtmltopdf-library-tests/wkhtmltopdf-library-t … ebug/net10.0/runtimes/linux-arm64/native/selenium-manager  --browser \"chrome\" --browser-path \"/usr/bin/google-chrome\" --language-binding csharp --output mixed"
-    ],
-    "zoom option flag is outputted in wkhtml format.": [
-     "pass",
-     ""
-    ],
-    "can get the png from the contact image link(url: \"http://localhost:5000\", site: \"Asp.net 10\")": [
-     "fail",
-     "OpenQA.Selenium.WebDriverException : Selenium Manager process exited abnormally with 65 code: /home/runner/work/wkhtmltopdf-library-tests/wkhtmltopdf-library-t … ebug/net10.0/runtimes/linux-arm64/native/selenium-manager  --browser \"chrome\" --browser-path \"/usr/bin/google-chrome\" --language-binding csharp --output mixed"
-    ],
-    "multiple option flags should be combined to one option string.": [
-     "pass",
-     ""
     ],
     "boolean option flag are outputted in wkhtml format.": [
+     "pass",
+     ""
+    ],
+    "zoom option flag is outputted in wkhtml format.": [
      "pass",
      ""
     ],
@@ -5432,15 +5424,23 @@
      "fail",
      "OpenQA.Selenium.WebDriverException : Selenium Manager process exited abnormally with 65 code: /home/runner/work/wkhtmltopdf-library-tests/wkhtmltopdf-library-t … ebug/net10.0/runtimes/linux-arm64/native/selenium-manager  --browser \"chrome\" --browser-path \"/usr/bin/google-chrome\" --language-binding csharp --output mixed"
     ],
+    "can get the png from the contact image link(url: \"http://localhost:5000\", site: \"Asp.net 10\")": [
+     "fail",
+     "OpenQA.Selenium.WebDriverException : Selenium Manager process exited abnormally with 65 code: /home/runner/work/wkhtmltopdf-library-tests/wkhtmltopdf-library-t … ebug/net10.0/runtimes/linux-arm64/native/selenium-manager  --browser \"chrome\" --browser-path \"/usr/bin/google-chrome\" --language-binding csharp --output mixed"
+    ],
     "can get a PDF with special characters(url: \"http://localhost:5000\", site: \"Asp.net 10\")": [
      "fail",
      "OpenQA.Selenium.WebDriverException : Selenium Manager process exited abnormally with 65 code: /home/runner/work/wkhtmltopdf-library-tests/wkhtmltopdf-library-t … ebug/net10.0/runtimes/linux-arm64/native/selenium-manager  --browser \"chrome\" --browser-path \"/usr/bin/google-chrome\" --language-binding csharp --output mixed"
+    ],
+    "multiple option flags should be combined to one option string.": [
+     "pass",
+     ""
     ],
     "dictionary options should be repeated for each key": [
      "pass",
      ""
     ],
-    "can get the jpg from the privacy image link(url: \"http://localhost:5000\", site: \"Asp.net 10\")": [
+    "can get the PDF from the contact link(url: \"http://localhost:5000\", site: \"Asp.net 10\")": [
      "fail",
      "OpenQA.Selenium.WebDriverException : Selenium Manager process exited abnormally with 65 code: /home/runner/work/wkhtmltopdf-library-tests/wkhtmltopdf-library-t … ebug/net10.0/runtimes/linux-arm64/native/selenium-manager  --browser \"chrome\" --browser-path \"/usr/bin/google-chrome\" --language-binding csharp --output mixed"
     ],
@@ -5475,7 +5475,7 @@
    "arch": "arm64",
    "release": "v1.5.0",
    "commit": "84c470e82f2fec13e1d4755c86fee90a9606c3ac",
-   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45338508356",
+   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45340799688",
    "job": "Rotativa.AspNetCore v1.5.0 · wkhtmltopdf 0.12.6 · arm64",
    "installed": {
     "program": "wkhtmltopdf",
@@ -5494,15 +5494,11 @@
     "test": "failure"
    },
    "tests": {
-    "should return the demo home page(url: \"http://localhost:5000\", site: \"Asp.net 10\")": [
-     "fail",
-     "OpenQA.Selenium.WebDriverException : Selenium Manager process exited abnormally with 65 code: /home/runner/work/wkhtmltopdf-library-tests/wkhtmltopdf-library-t … ebug/net10.0/runtimes/linux-arm64/native/selenium-manager  --browser \"chrome\" --browser-path \"/usr/bin/google-chrome\" --language-binding csharp --output mixed"
-    ],
-    "should not pass options by default.": [
+    "multiple option flags should be combined to one option string.": [
      "pass",
      ""
     ],
-    "dictionary options should be repeated for each key": [
+    "zoom option flag is outputted in wkhtml format.": [
      "pass",
      ""
     ],
@@ -5510,7 +5506,7 @@
      "fail",
      "OpenQA.Selenium.WebDriverException : Selenium Manager process exited abnormally with 65 code: /home/runner/work/wkhtmltopdf-library-tests/wkhtmltopdf-library-t … ebug/net10.0/runtimes/linux-arm64/native/selenium-manager  --browser \"chrome\" --browser-path \"/usr/bin/google-chrome\" --language-binding csharp --output mixed"
     ],
-    "boolean option flag are outputted in wkhtml format.": [
+    "dictionary options should be repeated for each key": [
      "pass",
      ""
     ],
@@ -5518,21 +5514,25 @@
      "fail",
      "OpenQA.Selenium.WebDriverException : Selenium Manager process exited abnormally with 65 code: /home/runner/work/wkhtmltopdf-library-tests/wkhtmltopdf-library-t … ebug/net10.0/runtimes/linux-arm64/native/selenium-manager  --browser \"chrome\" --browser-path \"/usr/bin/google-chrome\" --language-binding csharp --output mixed"
     ],
+    "should return the demo home page(url: \"http://localhost:5000\", site: \"Asp.net 10\")": [
+     "fail",
+     "OpenQA.Selenium.WebDriverException : Selenium Manager process exited abnormally with 65 code: /home/runner/work/wkhtmltopdf-library-tests/wkhtmltopdf-library-t … ebug/net10.0/runtimes/linux-arm64/native/selenium-manager  --browser \"chrome\" --browser-path \"/usr/bin/google-chrome\" --language-binding csharp --output mixed"
+    ],
+    "boolean option flag are outputted in wkhtml format.": [
+     "pass",
+     ""
+    ],
+    "should not pass options by default.": [
+     "pass",
+     ""
+    ],
     "can get a PDF with special characters(url: \"http://localhost:5000\", site: \"Asp.net 10\")": [
      "fail",
      "OpenQA.Selenium.WebDriverException : Selenium Manager process exited abnormally with 65 code: /home/runner/work/wkhtmltopdf-library-tests/wkhtmltopdf-library-t … ebug/net10.0/runtimes/linux-arm64/native/selenium-manager  --browser \"chrome\" --browser-path \"/usr/bin/google-chrome\" --language-binding csharp --output mixed"
     ],
-    "multiple option flags should be combined to one option string.": [
-     "pass",
-     ""
-    ],
     "can get the jpg from the privacy image link(url: \"http://localhost:5000\", site: \"Asp.net 10\")": [
      "fail",
      "OpenQA.Selenium.WebDriverException : Selenium Manager process exited abnormally with 65 code: /home/runner/work/wkhtmltopdf-library-tests/wkhtmltopdf-library-t … ebug/net10.0/runtimes/linux-arm64/native/selenium-manager  --browser \"chrome\" --browser-path \"/usr/bin/google-chrome\" --language-binding csharp --output mixed"
-    ],
-    "zoom option flag is outputted in wkhtml format.": [
-     "pass",
-     ""
     ]
    },
    "counts": {
@@ -5543,7 +5543,7 @@
    },
    "runner_says": 10,
    "runner_status": 1,
-   "seconds": 9,
+   "seconds": 13,
    "calls": 0,
    "conversions": 0,
    "options": [],
@@ -5561,7 +5561,7 @@
    "arch": "arm64",
    "release": "v1.7.3",
    "commit": "f749a7d2e0f1260f4a0f96925323e34ede898f1f",
-   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45338508356",
+   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45340799688",
    "job": "Snappy v1.7.3 · marqius-wkhtmltopdf 0.12.14 · arm64",
    "installed": {
     "program": "marqius",
@@ -5803,7 +5803,7 @@
    "arch": "arm64",
    "release": "v1.7.3",
    "commit": "f749a7d2e0f1260f4a0f96925323e34ede898f1f",
-   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45338508356",
+   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45340799688",
    "job": "Snappy v1.7.3 · wkhtmltopdf 0.12.6 · arm64",
    "installed": {
     "program": "wkhtmltopdf",
@@ -6027,7 +6027,7 @@
    },
    "runner_says": 49,
    "runner_status": 0,
-   "seconds": 0,
+   "seconds": 1,
    "calls": 0,
    "conversions": 0,
    "options": [],
@@ -6045,7 +6045,7 @@
    "arch": "arm64",
    "release": "2.7.0",
    "commit": "edcd80e7a96b5fe79476f7984e5ff8f3765f220d",
-   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45338508356",
+   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45340799688",
    "job": "wicked_pdf 2.7.0 · marqius-wkhtmltopdf 0.12.14 · arm64",
    "installed": {
     "program": "marqius",
@@ -6064,171 +6064,11 @@
     "test": "success"
    },
    "tests": {
-    "PdfHelperTest#test_should_call_after_action_instead_of_after_filter_when_able": [
-     "pass",
-     ""
-    ],
-    "PdfHelperTest#test_should_prerender_header_and_footer_:template_options": [
-     "pass",
-     ""
-    ],
-    "PdfHelperTest#test_should_not_interfere_with_already_prepended_patches": [
-     "pass",
-     ""
-    ],
-    "WickedPdfHelperAssetsTest#test_wicked_pdf_asset_path_should_return_a_url_when_assets_are_served_by_an_asset_server": [
-     "pass",
-     ""
-    ],
-    "WickedPdfHelperAssetsTest#test_wicked_pdf_asset_path_should_return_a_url_when_assets_are_served_by_an_asset_server_using_HTTPS": [
-     "pass",
-     ""
-    ],
-    "WickedPdfHelperAssetsTest#test_wicked_pdf_asset_path_should_return_a_path": [
-     "pass",
-     ""
-    ],
-    "WickedPdfHelperAssetsTest#test_wicked_pdf_asset_path_should_return_a_url_with_a_protocol_when_assets_are_served_by_an_asset_server_with_relative_urls": [
-     "pass",
-     ""
-    ],
-    "WickedPdfHelperAssetsTest#test_wicked_pdf_asset_path_should_return_a_url_when_asset_is_url_without_protocol": [
-     "pass",
-     ""
-    ],
-    "WickedPdfHelperAssetsTest#test_wicked_pdf_asset_base64_returns_a_base64_encoded_asset": [
-     "pass",
-     ""
-    ],
-    "WickedPdfHelperAssetsTest#test_wicked_pdf_image_tag_should_return_the_same_as_image_tag_when_passed_a_full_path": [
-     "pass",
-     ""
-    ],
-    "WickedPdfHelperAssetsTest#test_WickedPdfHelper::Assets::ASSET_URL_REGEX_should_match_various_URL_data_type_formats": [
-     "pass",
-     ""
-    ],
-    "WickedPdfHelperAssetsTest#test_wicked_pdf_asset_path_should_return_a_url_when_asset_is_url": [
-     "pass",
-     ""
-    ],
-    "WickedPdfHelperAssetsTest#test_wicked_pdf_javascript_include_tag_should_inline_the_javascripts_passed_in": [
-     "pass",
-     ""
-    ],
-    "WickedPdfHelperAssetsTest#test_wicked_pdf_asset_path_should_return_a_path_when_asset_does_not_exist": [
-     "pass",
-     ""
-    ],
-    "WickedPdfHelperAssetsTest#test_wicked_pdf_asset_path_should_return_a_url_with_a_protocol_when_assets_are_served_by_an_asset_server_with_no_protocol_set": [
-     "pass",
-     ""
-    ],
-    "WickedPdfHelperAssetsTest#test_wicked_pdf_stylesheet_link_tag_should_inline_the_stylesheets_passed_in": [
-     "pass",
-     ""
-    ],
-    "WickedPdfHelperAssetsTest#test_prepend_protocol_should_properly_set_the_protocol_when_the_asset_is_precompiled": [
-     "pass",
-     ""
-    ],
-    "WickedPdfOptionParserTest#test_--_options_should_not_be_given_after_object": [
-     "pass",
-     ""
-    ],
-    "WickedPdfOptionParserTest#test_should_parse_other_options": [
-     "pass",
-     ""
-    ],
-    "WickedPdfOptionParserTest#test_should_parse_cover": [
-     "pass",
-     ""
-    ],
-    "WickedPdfOptionParserTest#test_should_parse_header_and_footer_options": [
-     "pass",
-     ""
-    ],
-    "WickedPdfOptionParserTest#test_should_parse_outline_options": [
-     "pass",
-     ""
-    ],
-    "WickedPdfOptionParserTest#test_should_parse_no_images_option": [
-     "pass",
-     ""
-    ],
-    "WickedPdfOptionParserTest#test_should_parse_margins_options": [
-     "pass",
-     ""
-    ],
-    "WickedPdfOptionParserTest#test_should_parse_toc_options": [
-     "pass",
-     ""
-    ],
-    "WickedPdfOptionParserTest#test_should_use_double_dash_options_for_version_with_dashes": [
-     "pass",
-     ""
-    ],
-    "WickedPdfOptionParserTest#test_should_not_use_double_dash_options_for_version_without_dashes": [
-     "pass",
-     ""
-    ],
-    "WickedPdfTest#test_should_generate_PDF_from_html_document": [
-     "pass",
-     ""
-    ],
-    "WickedPdfTest#test_should_generate_PDF_from_html_existing_HTML_file_without_converting_it_to_string": [
-     "pass",
-     ""
-    ],
-    "WickedPdfTest#test_should_output_progress_when_creating_pdfs_on_compatible_hosts": [
-     "pass",
-     ""
-    ],
-    "WickedPdfTest#test_should_raise_exception_when_pdf_generation_fails": [
-     "pass",
-     ""
-    ],
-    "WickedPdfTest#test_should_raise_exception_when_no_path_to_wkhtmltopdf": [
-     "pass",
-     ""
-    ],
-    "WickedPdfTest#test_should_raise_exception_when_wkhtmltopdf_is_not_executable": [
-     "pass",
-     ""
-    ],
-    "WickedPdfTest#test_should_raise_exception_when_wkhtmltopdf_path_is_wrong": [
-     "pass",
-     ""
-    ],
-    "WickedPdfTest#test_should_generate_PDF_from_html_document_with_long_lines": [
-     "pass",
-     ""
-    ],
-    "WickedPdfBinaryTest#test_should_extract_new_wkhtmltopdf_version": [
-     "pass",
-     ""
-    ],
-    "WickedPdfBinaryTest#test_should_extract_wkhtmltopdf_version_with_nondigit_symbols": [
-     "pass",
-     ""
-    ],
-    "WickedPdfBinaryTest#test_should_fallback_to_default_version_on_parse_error": [
-     "pass",
-     ""
-    ],
-    "WickedPdfBinaryTest#test_should_extract_old_wkhtmltopdf_version": [
-     "pass",
-     ""
-    ],
-    "WkhtmltopdfLocationTest#test_should_correctly_locate_wkhtmltopdf_with_bundler": [
-     "pass",
-     ""
-    ],
     "WkhtmltopdfLocationTest#test_should_correctly_locate_wkhtmltopdf_without_bundler": [
      "pass",
      ""
     ],
-    "WickedPdfHelperTest#test_wicked_pdf_image_tag_should_return_the_same_as_image_tag_when_passed_a_full_path": [
+    "WkhtmltopdfLocationTest#test_should_correctly_locate_wkhtmltopdf_with_bundler": [
      "pass",
      ""
     ],
@@ -6240,7 +6080,167 @@
      "pass",
      ""
     ],
+    "WickedPdfHelperTest#test_wicked_pdf_image_tag_should_return_the_same_as_image_tag_when_passed_a_full_path": [
+     "pass",
+     ""
+    ],
     "WkhtmltopdfLocationTest::LocationNonWritableTest#test_should_correctly_locate_wkhtmltopdf_with_bundler_while_HOME_is_set_to_a_non-writable_directory": [
+     "pass",
+     ""
+    ],
+    "WickedPdfBinaryTest#test_should_extract_wkhtmltopdf_version_with_nondigit_symbols": [
+     "pass",
+     ""
+    ],
+    "WickedPdfBinaryTest#test_should_extract_old_wkhtmltopdf_version": [
+     "pass",
+     ""
+    ],
+    "WickedPdfBinaryTest#test_should_fallback_to_default_version_on_parse_error": [
+     "pass",
+     ""
+    ],
+    "WickedPdfBinaryTest#test_should_extract_new_wkhtmltopdf_version": [
+     "pass",
+     ""
+    ],
+    "PdfHelperTest#test_should_prerender_header_and_footer_:template_options": [
+     "pass",
+     ""
+    ],
+    "PdfHelperTest#test_should_not_interfere_with_already_prepended_patches": [
+     "pass",
+     ""
+    ],
+    "PdfHelperTest#test_should_call_after_action_instead_of_after_filter_when_able": [
+     "pass",
+     ""
+    ],
+    "WickedPdfTest#test_should_raise_exception_when_wkhtmltopdf_is_not_executable": [
+     "pass",
+     ""
+    ],
+    "WickedPdfTest#test_should_raise_exception_when_wkhtmltopdf_path_is_wrong": [
+     "pass",
+     ""
+    ],
+    "WickedPdfTest#test_should_raise_exception_when_pdf_generation_fails": [
+     "pass",
+     ""
+    ],
+    "WickedPdfTest#test_should_generate_PDF_from_html_existing_HTML_file_without_converting_it_to_string": [
+     "pass",
+     ""
+    ],
+    "WickedPdfTest#test_should_generate_PDF_from_html_document_with_long_lines": [
+     "pass",
+     ""
+    ],
+    "WickedPdfTest#test_should_raise_exception_when_no_path_to_wkhtmltopdf": [
+     "pass",
+     ""
+    ],
+    "WickedPdfTest#test_should_output_progress_when_creating_pdfs_on_compatible_hosts": [
+     "pass",
+     ""
+    ],
+    "WickedPdfTest#test_should_generate_PDF_from_html_document": [
+     "pass",
+     ""
+    ],
+    "WickedPdfOptionParserTest#test_--_options_should_not_be_given_after_object": [
+     "pass",
+     ""
+    ],
+    "WickedPdfOptionParserTest#test_should_parse_other_options": [
+     "pass",
+     ""
+    ],
+    "WickedPdfOptionParserTest#test_should_parse_header_and_footer_options": [
+     "pass",
+     ""
+    ],
+    "WickedPdfOptionParserTest#test_should_parse_no_images_option": [
+     "pass",
+     ""
+    ],
+    "WickedPdfOptionParserTest#test_should_parse_margins_options": [
+     "pass",
+     ""
+    ],
+    "WickedPdfOptionParserTest#test_should_parse_cover": [
+     "pass",
+     ""
+    ],
+    "WickedPdfOptionParserTest#test_should_not_use_double_dash_options_for_version_without_dashes": [
+     "pass",
+     ""
+    ],
+    "WickedPdfOptionParserTest#test_should_use_double_dash_options_for_version_with_dashes": [
+     "pass",
+     ""
+    ],
+    "WickedPdfOptionParserTest#test_should_parse_outline_options": [
+     "pass",
+     ""
+    ],
+    "WickedPdfOptionParserTest#test_should_parse_toc_options": [
+     "pass",
+     ""
+    ],
+    "WickedPdfHelperAssetsTest#test_WickedPdfHelper::Assets::ASSET_URL_REGEX_should_match_various_URL_data_type_formats": [
+     "pass",
+     ""
+    ],
+    "WickedPdfHelperAssetsTest#test_wicked_pdf_javascript_include_tag_should_inline_the_javascripts_passed_in": [
+     "pass",
+     ""
+    ],
+    "WickedPdfHelperAssetsTest#test_wicked_pdf_asset_path_should_return_a_url_with_a_protocol_when_assets_are_served_by_an_asset_server_with_no_protocol_set": [
+     "pass",
+     ""
+    ],
+    "WickedPdfHelperAssetsTest#test_wicked_pdf_asset_path_should_return_a_path": [
+     "pass",
+     ""
+    ],
+    "WickedPdfHelperAssetsTest#test_wicked_pdf_asset_path_should_return_a_path_when_asset_does_not_exist": [
+     "pass",
+     ""
+    ],
+    "WickedPdfHelperAssetsTest#test_wicked_pdf_stylesheet_link_tag_should_inline_the_stylesheets_passed_in": [
+     "pass",
+     ""
+    ],
+    "WickedPdfHelperAssetsTest#test_wicked_pdf_asset_path_should_return_a_url_with_a_protocol_when_assets_are_served_by_an_asset_server_with_relative_urls": [
+     "pass",
+     ""
+    ],
+    "WickedPdfHelperAssetsTest#test_wicked_pdf_asset_base64_returns_a_base64_encoded_asset": [
+     "pass",
+     ""
+    ],
+    "WickedPdfHelperAssetsTest#test_wicked_pdf_asset_path_should_return_a_url_when_asset_is_url_without_protocol": [
+     "pass",
+     ""
+    ],
+    "WickedPdfHelperAssetsTest#test_wicked_pdf_asset_path_should_return_a_url_when_asset_is_url": [
+     "pass",
+     ""
+    ],
+    "WickedPdfHelperAssetsTest#test_prepend_protocol_should_properly_set_the_protocol_when_the_asset_is_precompiled": [
+     "pass",
+     ""
+    ],
+    "WickedPdfHelperAssetsTest#test_wicked_pdf_asset_path_should_return_a_url_when_assets_are_served_by_an_asset_server": [
+     "pass",
+     ""
+    ],
+    "WickedPdfHelperAssetsTest#test_wicked_pdf_image_tag_should_return_the_same_as_image_tag_when_passed_a_full_path": [
+     "pass",
+     ""
+    ],
+    "WickedPdfHelperAssetsTest#test_wicked_pdf_asset_path_should_return_a_url_when_assets_are_served_by_an_asset_server_using_HTTPS": [
      "pass",
      ""
     ]
@@ -6253,7 +6253,7 @@
    },
    "runner_says": 45,
    "runner_status": 0,
-   "seconds": 2,
+   "seconds": 3,
    "calls": 8,
    "conversions": 4,
    "options": [],
@@ -6271,7 +6271,7 @@
    "arch": "arm64",
    "release": "2.7.0",
    "commit": "edcd80e7a96b5fe79476f7984e5ff8f3765f220d",
-   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45338508356",
+   "run_url": "https://github.com/marqiushq/wkhtmltopdf-library-tests/actions/runs/45340799688",
    "job": "wicked_pdf 2.7.0 · wkhtmltopdf 0.12.6 · arm64",
    "installed": {
     "program": "wkhtmltopdf",
@@ -6290,23 +6290,27 @@
     "test": "success"
    },
    "tests": {
-    "WickedPdfBinaryTest#test_should_extract_new_wkhtmltopdf_version": [
+    "PdfHelperTest#test_should_not_interfere_with_already_prepended_patches": [
      "pass",
      ""
     ],
-    "WickedPdfBinaryTest#test_should_extract_old_wkhtmltopdf_version": [
+    "PdfHelperTest#test_should_prerender_header_and_footer_:template_options": [
      "pass",
      ""
     ],
-    "WickedPdfBinaryTest#test_should_extract_wkhtmltopdf_version_with_nondigit_symbols": [
+    "PdfHelperTest#test_should_call_after_action_instead_of_after_filter_when_able": [
      "pass",
      ""
     ],
-    "WickedPdfBinaryTest#test_should_fallback_to_default_version_on_parse_error": [
+    "WkhtmltopdfLocationTest#test_should_correctly_locate_wkhtmltopdf_without_bundler": [
      "pass",
      ""
     ],
-    "WickedPdfHelperAssetsTest#test_wicked_pdf_asset_path_should_return_a_path_when_asset_does_not_exist": [
+    "WkhtmltopdfLocationTest#test_should_correctly_locate_wkhtmltopdf_with_bundler": [
+     "pass",
+     ""
+    ],
+    "WkhtmltopdfLocationTest::LocationNonWritableTest#test_should_correctly_locate_wkhtmltopdf_with_bundler_while_HOME_is_set_to_a_non-writable_directory": [
      "pass",
      ""
     ],
@@ -6314,19 +6318,7 @@
      "pass",
      ""
     ],
-    "WickedPdfHelperAssetsTest#test_wicked_pdf_asset_path_should_return_a_url_with_a_protocol_when_assets_are_served_by_an_asset_server_with_no_protocol_set": [
-     "pass",
-     ""
-    ],
-    "WickedPdfHelperAssetsTest#test_wicked_pdf_asset_path_should_return_a_url_when_assets_are_served_by_an_asset_server_using_HTTPS": [
-     "pass",
-     ""
-    ],
-    "WickedPdfHelperAssetsTest#test_wicked_pdf_asset_path_should_return_a_url_with_a_protocol_when_assets_are_served_by_an_asset_server_with_relative_urls": [
-     "pass",
-     ""
-    ],
-    "WickedPdfHelperAssetsTest#test_WickedPdfHelper::Assets::ASSET_URL_REGEX_should_match_various_URL_data_type_formats": [
+    "WickedPdfHelperAssetsTest#test_wicked_pdf_stylesheet_link_tag_should_inline_the_stylesheets_passed_in": [
      "pass",
      ""
     ],
@@ -6338,23 +6330,15 @@
      "pass",
      ""
     ],
-    "WickedPdfHelperAssetsTest#test_wicked_pdf_asset_path_should_return_a_path": [
-     "pass",
-     ""
-    ],
     "WickedPdfHelperAssetsTest#test_wicked_pdf_asset_path_should_return_a_url_when_asset_is_url": [
      "pass",
      ""
     ],
-    "WickedPdfHelperAssetsTest#test_wicked_pdf_javascript_include_tag_should_inline_the_javascripts_passed_in": [
+    "WickedPdfHelperAssetsTest#test_wicked_pdf_asset_path_should_return_a_path": [
      "pass",
      ""
     ],
-    "WickedPdfHelperAssetsTest#test_wicked_pdf_stylesheet_link_tag_should_inline_the_stylesheets_passed_in": [
-     "pass",
-     ""
-    ],
-    "WickedPdfHelperAssetsTest#test_wicked_pdf_asset_base64_returns_a_base64_encoded_asset": [
+    "WickedPdfHelperAssetsTest#test_wicked_pdf_asset_path_should_return_a_url_when_assets_are_served_by_an_asset_server_using_HTTPS": [
      "pass",
      ""
     ],
@@ -6362,19 +6346,83 @@
      "pass",
      ""
     ],
-    "PdfHelperTest#test_should_call_after_action_instead_of_after_filter_when_able": [
+    "WickedPdfHelperAssetsTest#test_wicked_pdf_asset_path_should_return_a_path_when_asset_does_not_exist": [
      "pass",
      ""
     ],
-    "PdfHelperTest#test_should_not_interfere_with_already_prepended_patches": [
+    "WickedPdfHelperAssetsTest#test_wicked_pdf_asset_path_should_return_a_url_with_a_protocol_when_assets_are_served_by_an_asset_server_with_relative_urls": [
      "pass",
      ""
     ],
-    "PdfHelperTest#test_should_prerender_header_and_footer_:template_options": [
+    "WickedPdfHelperAssetsTest#test_WickedPdfHelper::Assets::ASSET_URL_REGEX_should_match_various_URL_data_type_formats": [
      "pass",
      ""
     ],
-    "WickedPdfHelperTest#test_wicked_pdf_image_tag_should_return_the_same_as_image_tag_when_passed_a_full_path": [
+    "WickedPdfHelperAssetsTest#test_wicked_pdf_asset_path_should_return_a_url_with_a_protocol_when_assets_are_served_by_an_asset_server_with_no_protocol_set": [
+     "pass",
+     ""
+    ],
+    "WickedPdfHelperAssetsTest#test_wicked_pdf_asset_base64_returns_a_base64_encoded_asset": [
+     "pass",
+     ""
+    ],
+    "WickedPdfHelperAssetsTest#test_wicked_pdf_javascript_include_tag_should_inline_the_javascripts_passed_in": [
+     "pass",
+     ""
+    ],
+    "WickedPdfOptionParserTest#test_should_parse_other_options": [
+     "pass",
+     ""
+    ],
+    "WickedPdfOptionParserTest#test_should_parse_header_and_footer_options": [
+     "pass",
+     ""
+    ],
+    "WickedPdfOptionParserTest#test_should_parse_no_images_option": [
+     "pass",
+     ""
+    ],
+    "WickedPdfOptionParserTest#test_should_not_use_double_dash_options_for_version_without_dashes": [
+     "pass",
+     ""
+    ],
+    "WickedPdfOptionParserTest#test_should_parse_toc_options": [
+     "pass",
+     ""
+    ],
+    "WickedPdfOptionParserTest#test_should_parse_margins_options": [
+     "pass",
+     ""
+    ],
+    "WickedPdfOptionParserTest#test_should_parse_outline_options": [
+     "pass",
+     ""
+    ],
+    "WickedPdfOptionParserTest#test_should_use_double_dash_options_for_version_with_dashes": [
+     "pass",
+     ""
+    ],
+    "WickedPdfOptionParserTest#test_--_options_should_not_be_given_after_object": [
+     "pass",
+     ""
+    ],
+    "WickedPdfOptionParserTest#test_should_parse_cover": [
+     "pass",
+     ""
+    ],
+    "WickedPdfBinaryTest#test_should_fallback_to_default_version_on_parse_error": [
+     "pass",
+     ""
+    ],
+    "WickedPdfBinaryTest#test_should_extract_old_wkhtmltopdf_version": [
+     "pass",
+     ""
+    ],
+    "WickedPdfBinaryTest#test_should_extract_wkhtmltopdf_version_with_nondigit_symbols": [
+     "pass",
+     ""
+    ],
+    "WickedPdfBinaryTest#test_should_extract_new_wkhtmltopdf_version": [
      "pass",
      ""
     ],
@@ -6386,43 +6434,7 @@
      "pass",
      ""
     ],
-    "WickedPdfOptionParserTest#test_should_parse_other_options": [
-     "pass",
-     ""
-    ],
-    "WickedPdfOptionParserTest#test_--_options_should_not_be_given_after_object": [
-     "pass",
-     ""
-    ],
-    "WickedPdfOptionParserTest#test_should_not_use_double_dash_options_for_version_without_dashes": [
-     "pass",
-     ""
-    ],
-    "WickedPdfOptionParserTest#test_should_parse_margins_options": [
-     "pass",
-     ""
-    ],
-    "WickedPdfOptionParserTest#test_should_parse_no_images_option": [
-     "pass",
-     ""
-    ],
-    "WickedPdfOptionParserTest#test_should_parse_header_and_footer_options": [
-     "pass",
-     ""
-    ],
-    "WickedPdfOptionParserTest#test_should_parse_toc_options": [
-     "pass",
-     ""
-    ],
-    "WickedPdfOptionParserTest#test_should_use_double_dash_options_for_version_with_dashes": [
-     "pass",
-     ""
-    ],
-    "WickedPdfOptionParserTest#test_should_parse_cover": [
-     "pass",
-     ""
-    ],
-    "WickedPdfOptionParserTest#test_should_parse_outline_options": [
+    "WickedPdfHelperTest#test_wicked_pdf_image_tag_should_return_the_same_as_image_tag_when_passed_a_full_path": [
      "pass",
      ""
     ],
@@ -6430,15 +6442,7 @@
      "pass",
      ""
     ],
-    "WickedPdfTest#test_should_generate_PDF_from_html_document": [
-     "pass",
-     ""
-    ],
-    "WickedPdfTest#test_should_raise_exception_when_no_path_to_wkhtmltopdf": [
-     "pass",
-     ""
-    ],
-    "WickedPdfTest#test_should_generate_PDF_from_html_document_with_long_lines": [
+    "WickedPdfTest#test_should_raise_exception_when_wkhtmltopdf_path_is_wrong": [
      "pass",
      ""
     ],
@@ -6450,23 +6454,19 @@
      "pass",
      ""
     ],
+    "WickedPdfTest#test_should_generate_PDF_from_html_document": [
+     "pass",
+     ""
+    ],
+    "WickedPdfTest#test_should_generate_PDF_from_html_document_with_long_lines": [
+     "pass",
+     ""
+    ],
     "WickedPdfTest#test_should_generate_PDF_from_html_existing_HTML_file_without_converting_it_to_string": [
      "pass",
      ""
     ],
-    "WickedPdfTest#test_should_raise_exception_when_wkhtmltopdf_path_is_wrong": [
-     "pass",
-     ""
-    ],
-    "WkhtmltopdfLocationTest#test_should_correctly_locate_wkhtmltopdf_with_bundler": [
-     "pass",
-     ""
-    ],
-    "WkhtmltopdfLocationTest#test_should_correctly_locate_wkhtmltopdf_without_bundler": [
-     "pass",
-     ""
-    ],
-    "WkhtmltopdfLocationTest::LocationNonWritableTest#test_should_correctly_locate_wkhtmltopdf_with_bundler_while_HOME_is_set_to_a_non-writable_directory": [
+    "WickedPdfTest#test_should_raise_exception_when_no_path_to_wkhtmltopdf": [
      "pass",
      ""
     ]
@@ -6479,7 +6479,7 @@
    },
    "runner_says": 45,
    "runner_status": 0,
-   "seconds": 3,
+   "seconds": 4,
    "calls": 8,
    "conversions": 4,
    "options": [],
