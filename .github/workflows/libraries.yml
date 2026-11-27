@@ -130,6 +130,12 @@ jobs:
         with:
           name: programs
           path: programs
+      # GitHub's Ubuntu machines carry Microsoft's apt repository as well as Ubuntu's. On 27 Nov 2026
+      # it answered 403, and `apt-get update` failed a channel test with it. A customer's Ubuntu has only
+      # Ubuntu's sources (in sources.list on 22.04, sources.list.d/ubuntu.sources from 24.04), so only those stay.
+      - name: Only Ubuntu's own apt sources, as on a customer's machine
+        if: runner.os == 'Linux' && runner.environment == 'github-hosted'
+        run: sudo find /etc/apt/sources.list.d -mindepth 1 -maxdepth 1 ! -type d ! -name ubuntu.sources -print -delete
       - id: apt
         name: System packages, the same on every machine
         run: bash harness/suite.sh "${{ matrix.library }}" apt
